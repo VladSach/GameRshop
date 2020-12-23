@@ -17,7 +17,8 @@ export default class HomePage {
 
         this.content.innerHTML = `
         ${this.loadSlider()}
-        ${this.loadMastersBlock()}`;
+        ${this.loadMastersBlock()}
+        ${this.bestSellers(data)}`;
 
         this.sliderScript();
         this.mastersScript();
@@ -151,4 +152,21 @@ export default class HomePage {
             document.querySelector('.master-block').classList.remove('hover'); 
         };
     }
+
+    bestSellers(data){
+        return `
+        <div class="the-hateful-four">
+                <h2>Our <span>top four</span> buying games</h2>
+                <div class="top-games-block">
+                    <div class="game-card">
+                        <a class="game-card-image" href="${data.products[0].url}">
+                            <img src="${data.products[0].image}" alt="game image">
+                        </a>
+                    </div>
+                <div>
+            </div>
+        `
+
+    }
+
 }

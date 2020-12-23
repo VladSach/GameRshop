@@ -7,7 +7,7 @@ export async function getData(){
     let response = await fetch(requestURL)
 
     if (response.ok) {
-        let json = await response.json(); 
+        let json = await response.json();
         return json;
     }
 

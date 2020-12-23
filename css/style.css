@@ -212,7 +212,7 @@ main {
 
 .pacman-loader {
     position: absolute;
-    top: 20%;
+    top: 400px;
     left: 45%;
 }
 
@@ -253,7 +253,7 @@ main {
     text-transform: uppercase;
 }
 
-.master-block span {
+.master-block span, .the-hateful-four span {
     color: #f31a5a !important;
 }
 
@@ -324,6 +324,54 @@ main {
 
 .master-block:not(.hover) .image_2 {
     display: none;
+}
+
+.the-hateful-four {
+    margin-top: 80px;
+    margin-left: 14%;
+    margin-right: 14%;
+}
+
+.the-hateful-four h2 {
+    max-width: 620px;
+    padding-top: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.top-games-block {
+    margin-top: 30px;
+}
+
+.game-card {
+    padding: 15px;
+    width: 325px;
+    background: #212648;
+    box-shadow: 0 3px 5px rgba(0,0,0,.4);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.game-card-image {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: .2s ease;
+    margin-bottom: 15px;
+    display: flex;
+    position: relative;
+    text-decoration: none;
+}
+
+.game-card-image img {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 /* SLIDER */
