@@ -12,7 +12,11 @@ export default class HomePage {
         let data = await getData();
         let best_sellers = data.products;
 
-        best_sellers.sort(best_sellers.sold);
+        best_sellers.sort(function(a, b){
+            return b.sold - a.sold;
+        });
+
+        console.log(best_sellers)
 
         this.content.innerHTML = `
         ${this.loadSlider()}
@@ -167,7 +171,9 @@ export default class HomePage {
                         <p>${game.price} ₴</p>
                     </div>
                     <div class="game-card-platform">
-                        <img src="../images/platforms/${game.platform}.svg" alt=' '>
+                        <img src="../images/platforms/${game.platform[0]}.svg" alt=' '>
+                        <img src="../images/platforms/${game.platform[1]}.svg" alt=' '>
+                        <img src="../images/platforms/${game.platform[2]}.svg" alt=' '>
                     </div>
                 </div>
             `;

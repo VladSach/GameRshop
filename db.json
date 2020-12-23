@@ -38,6 +38,26 @@
         "image": "./images/products_img/days_gone.webp",
         "description": "Some description of the game",
         "sold": 500
+    },
+    {
+        "url": "days_gone",
+        "title": "Days Gone",
+        "platform": ["Playstation 4", "", ""],
+        "price": 499,
+        "genres": ["Action", "Andventure", "Horror"],
+        "image": "./images/products_img/days_gone.webp",
+        "description": "Some description of the game",
+        "sold": 500
+    },
+    {
+        "url": "days_gone",
+        "title": "Days Gone",
+        "platform": ["Playstation 4", "", ""],
+        "price": 499,
+        "genres": ["Action", "Andventure", "Horror"],
+        "image": "./images/products_img/days_gone.webp",
+        "description": "Some description of the game",
+        "sold": 500
     }],
     "profile": {
     "name": "typicode"
