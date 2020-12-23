@@ -5,10 +5,30 @@
         "platform": "Playstation 4",
         "price": 1349,
         "genres": ["Action", "Andventure"],
-        "image": "https://retromagaz.com/uploads/products/6c/59/site_eht6pgv5m_64bef965.webp",
+        "image": "./images/products_img/ghoust_of_tsushima.webp",
         "description": "Some description of the game",
         "sold": 650
     },
+    {
+        "url": "spyro_reignited_trilogy",
+        "title": "Spyro Reignited Trilogy",
+        "platform": "Playstation 4",
+        "price": 589,
+        "genres": ["Andventure", "For children"],
+        "image": "https://retromagaz.com/uploads/products/c7/c7/site_ehbcqdra8_6bcdd72b.webp",
+        "description": "Some description of the game",
+        "sold": 211
+    }
+    {
+        "url": "spyro_reignited_trilogy",
+        "title": "Spyro Reignited Trilogy",
+        "platform": "Playstation 4",
+        "price": 589,
+        "genres": ["Andventure", "For children"],
+        "image": "https://retromagaz.com/uploads/products/c7/c7/site_ehbcqdra8_6bcdd72b.webp",
+        "description": "Some description of the game",
+        "sold": 211
+    }
     {
         "url": "spyro_reignited_trilogy",
         "title": "Spyro Reignited Trilogy",

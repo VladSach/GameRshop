@@ -6,19 +6,18 @@ export default class HomePage {
         this.content = document.getElementById("page-content");
     }
 
-
-
-
-
     async loadPage(){
         this.content.innerHTML = this.showPacMan();
 
         let data = await getData();
+        let best_sellers = data.products;
+
+        best_sellers.sort(best_sellers.sold);
 
         this.content.innerHTML = `
         ${this.loadSlider()}
         ${this.loadMastersBlock()}
-        ${this.bestSellers(data)}`;
+        ${this.bestSellers(best_sellers)}`;
 
         this.sliderScript();
         this.mastersScript();
@@ -153,18 +152,34 @@ export default class HomePage {
         };
     }
 
-    bestSellers(data){
+
+    bestSellers(best_sellers){
+        let best_sellers_content = '';
+
+        best_sellers.forEach(game => {
+            best_sellers_content += `
+                <div class="game-card">
+                    <a class="game-card-image" href="${game.url}">
+                           <img src="${game.image}" alt="game image">
+                    </a>
+                    <a class="game-card-title" href="${game.url}">${game.title}</a>
+                    <div class="game-card-price">
+                        <p>${game.price} ₴</p>
+                    </div>
+                    <div class="game-card-platform">
+                        <img src="../images/platforms/${game.platform}.svg" alt=' '>
+                    </div>
+                </div>
+            `;
+        });
+
         return `
         <div class="the-hateful-four">
-                <h2>Our <span>top four</span> buying games</h2>
-                <div class="top-games-block">
-                    <div class="game-card">
-                        <a class="game-card-image" href="${data.products[0].url}">
-                            <img src="${data.products[0].image}" alt="game image">
-                        </a>
-                    </div>
-                <div>
-            </div>
+            <h2>Our <span>best</span> selling games</h2>
+            <div class="top-games-block">
+               ${best_sellers_content} 
+            <div>
+        </div>
         `
 
     }

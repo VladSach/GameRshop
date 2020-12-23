@@ -201,7 +201,7 @@ button {
 /* MAIN */
 main {
     width: 100%;
-    height: 100vw;
+    height: 2200px;
     
 }
 
@@ -285,7 +285,7 @@ main {
 }
 
 .image_2 {
-    margin-right: -4px;
+    margin-right: -1px;
     max-height: 500px;
     height: 100%;
     width: auto;
@@ -344,6 +344,10 @@ main {
 
 .top-games-block {
     margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .game-card {
@@ -372,6 +376,56 @@ main {
     width: 100%;
     min-width: 100%;
     min-height: 100%;
+}
+
+.game-card-image:hover {
+    opacity: 0.6;
+}
+
+.game-card-title {
+    overflow-wrap: break-word;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    font-weight: 400;
+    transition: .2s ease;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.game-card-title:hover {
+    opacity: 0.7;
+}
+
+.game-card-price {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.game-card-price p {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.game-card-platform {
+    margin-top: 15px;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.game-card-platform img {
+    display: block;
+    width: 100%;
+    margin-right: 10px;
+    max-width: 50px;
 }
 
 /* SLIDER */
