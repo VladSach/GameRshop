@@ -16,49 +16,11 @@ export default class HomePage {
         let data = await getData();
 
         this.content.innerHTML = `
-        <div class="slider">
-                
-                <div class="slides">
+        ${this.loadSlider()}
+        ${this.loadMastersBlock()}`;
 
-                    <input type="radio" name="r" id="r1" checked>
-                    <input type="radio" name="r" id="r2" >
-                    <input type="radio" name="r" id="r3" >
-                    <input type="radio" name="r" id="r4" >
-
-                    <div class="slide curS">
-                        <a href="">
-                            <img src="images/slider/image1.webp" alt="Slide">
-                        </a>
-                    </div>
-                    <div class="slide">
-                        <a href="">
-                            <img src="images/slider/image2.webp" alt="Slide">
-                        </a>
-                    </div>
-                    <div class="slide">
-                        <a href="">
-                            <img src="images/slider/image3.webp" alt="Slide">
-                        </a>
-                    </div>
-                    <div class="slide">
-                        <a href="">
-                            <img src="images/slider/image4.webp" alt="Slide">
-                        </a>
-                    </div>
-                
-                </div>
-
-                <div class="navigation">
-                    <label for="r1" class="slider-bar"></label>
-                    <label for="r2" class="slider-bar"></label>
-                    <label for="r3" class="slider-bar"></label>
-                    <label for="r4" class="slider-bar"></label>
-                </div>
-            </div>
-        `
         this.sliderScript();
-        
-        ;
+        this.mastersScript();
     }
 
 
@@ -93,6 +55,50 @@ export default class HomePage {
         `;
     }
 
+    loadSlider(){
+        return `
+        <div class="slider">
+                
+            <div class="slides">
+
+                <input type="radio" name="r" id="r1" checked>
+                <input type="radio" name="r" id="r2" >
+                <input type="radio" name="r" id="r3" >
+                <input type="radio" name="r" id="r4" >
+
+                <div class="slide curS">
+                    <a href="">
+                        <img src="images/slider/image1.webp" alt="Slide">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="">
+                        <img src="images/slider/image2.webp" alt="Slide">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="">
+                        <img src="images/slider/image3.webp" alt="Slide">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="">
+                        <img src="images/slider/image4.webp" alt="Slide">
+                    </a>
+                </div>
+                
+            </div>
+
+            <div class="navigation">
+                <label for="r1" class="slider-bar"></label>
+                <label for="r2" class="slider-bar"></label>
+                <label for="r3" class="slider-bar"></label>
+                <label for="r4" class="slider-bar"></label>
+            </div>
+        </div>
+            `;
+    }
+
     sliderScript(){
         let i = 0;
         let inputs = [];
@@ -114,4 +120,35 @@ export default class HomePage {
         window.onload = slideSlider();
     }
 
+    loadMastersBlock(){
+        return `
+        <div class="master-block">
+            <div>
+                <h2 class="white-text">Master of 
+                    <span class="red-text">games</span>
+                </h2>
+                <p> Game selection crisis? 
+                    Great choice and don't know how to play? 
+                    Played for a long time and do not know anything about new products? 
+                    Our Actions Master will solve your problem quickly and without unnecessary words :)
+                </p>
+                <a href="" id="btn-h" class="btn-promotes">Begin</a>
+            </div>
+            <div class="master-image">
+                <img class="image_1" src="./images/master/kia-1.svg" alt="master-down">
+                <img class="image_2" src="./images/master/kia-2.svg" alt="master-up">
+            </div>
+        </div>
+        `;
+    }
+    
+    mastersScript(){
+        document.querySelector('.btn-promotes').onmouseover = () => {
+            document.querySelector('.master-block').classList.add('hover'); 
+        };
+
+        document.querySelector('.btn-promotes').onmouseout = () => {
+            document.querySelector('.master-block').classList.remove('hover'); 
+        };
+    }
 }
