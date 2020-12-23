@@ -2,42 +2,42 @@
     "products": [{
         "url": "ghost_of_tsushima",
         "title": "Ghost of Tsushima",
-        "platform": "Playstation 4",
+        "platform": ["Playstation 4", "", ""],
         "price": 1349,
         "genres": ["Action", "Andventure"],
-        "image": "./images/products_img/ghoust_of_tsushima.webp",
+        "image": "./images/products_img/ghost_of_tsushima.webp",
         "description": "Some description of the game",
         "sold": 650
     },
     {
         "url": "spyro_reignited_trilogy",
         "title": "Spyro Reignited Trilogy",
-        "platform": "Playstation 4",
+        "platform": ["Playstation 4", "", ""],
         "price": 589,
         "genres": ["Andventure", "For children"],
-        "image": "https://retromagaz.com/uploads/products/c7/c7/site_ehbcqdra8_6bcdd72b.webp",
+        "image": "./images/products_img/spyro_reignited_trilogy.webp",
         "description": "Some description of the game",
         "sold": 211
     },
     {
-        "url": "spyro_reignited_trilogy",
-        "title": "Spyro Reignited Trilogy",
-        "platform": "Playstation 4",
-        "price": 589,
-        "genres": ["Andventure", "For children"],
-        "image": "https://retromagaz.com/uploads/products/c7/c7/site_ehbcqdra8_6bcdd72b.webp",
+        "url": "jedi_fallen_order",
+        "title": "Jedi: Fallen Order",
+        "platform": ["Playstation 4", "Xbox One", ""],
+        "price": 929,
+        "genres": ["Action", "Roleplaying"],
+        "image": "./images/products_img/jedi_fallen_order.webp",
         "description": "Some description of the game",
-        "sold": 211
+        "sold": 870
     },
     {
-        "url": "spyro_reignited_trilogy",
-        "title": "Spyro Reignited Trilogy",
-        "platform": "Playstation 4",
-        "price": 589,
-        "genres": ["Andventure", "For children"],
-        "image": "https://retromagaz.com/uploads/products/c7/c7/site_ehbcqdra8_6bcdd72b.webp",
+        "url": "days_gone",
+        "title": "Days Gone",
+        "platform": ["Playstation 4", "", ""],
+        "price": 499,
+        "genres": ["Action", "Andventure", "Horror"],
+        "image": "./images/products_img/days_gone.webp",
         "description": "Some description of the game",
-        "sold": 211
+        "sold": 500
     }],
     "profile": {
     "name": "typicode"
