@@ -6,7 +6,10 @@ export default class HomePage {
         this.content = document.getElementById("page-content");
     }
 
-    async loadPage(){
+    
+
+    async loadHomePage(){
+
         this.content.innerHTML = this.showPacMan();
 
         let data = await getData();
@@ -16,7 +19,7 @@ export default class HomePage {
             return b.sold - a.sold;
         });
 
-        console.log(best_sellers)
+        best_sellers = Object.entries(best_sellers).slice(0,4).map(entry => entry[1]); // slice object
 
         this.content.innerHTML = `
         ${this.loadSlider()}

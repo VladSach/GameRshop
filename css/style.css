@@ -351,7 +351,7 @@ main {
 }
 
 .game-card {
-    padding: 13px;
+    padding: 14px;
     width: 300px;
     background: #212648;
     box-shadow: 0 3px 5px rgba(0,0,0,.4);
@@ -440,10 +440,10 @@ main {
 }
 
 .navigation {
-    bottom: 16px;
+    bottom: 10px;
     position: absolute;
     display: flex;
-    margin-left: 40%;
+    margin-left: 38%;
 }
 
 .slider-bar {
@@ -451,7 +451,8 @@ main {
     width: 30px;
     margin: 6px;
     cursor: pointer;
-    background-color: #ddd;
+    background-color: var(--lighter-color);
+    border: 0.3rem solid var(--primary-color);
     opacity: .7;
     border-radius: 10px;
     transition: all .4s ease;

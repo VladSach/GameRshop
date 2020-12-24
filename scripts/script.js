@@ -1,4 +1,5 @@
 import HomePage from "./HomePage.js";
+import ProductPage from "./ProductPage.js";
 
 const requestURL = "https://my-json-server.typicode.com/VladSach/Retromagaz/db";
 
@@ -15,6 +16,8 @@ export async function getData(){
 }
 
 let homePage = new HomePage();
+let productPage = new ProductPage();
 (function() {
-    homePage.loadPage();
+    //homePage.loadHomePage();
+    //productPage.loadProductPage();
 })();
