@@ -135,10 +135,10 @@ export default class HomePage {
         best_sellers.forEach(game => {
             best_sellers_content += `
                 <div class="game-card">
-                    <a class="game-card-image" href="${game.url}">
+                    <a class="game-card-image" href="#product/${game.url}">
                            <img src="${game.image}" alt="game image">
                     </a>
-                    <a class="game-card-title" href="${game.url}">${game.title}</a>
+                    <a class="game-card-title" href="#product/${game.url}">${game.title}</a>
                     <div class="game-card-price">
                         <p>${game.price} ₴</p>
                     </div>
@@ -156,7 +156,7 @@ export default class HomePage {
             <h2>Our <span>best</span> selling games</h2>
             <div class="top-games-block">
                ${best_sellers_content} 
-            <div>
+            </div>
         </div>
         `
 

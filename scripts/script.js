@@ -1,4 +1,6 @@
+import Router from "./Router.js";
 import HomePage from "./HomePage.js";
+import PagesHub from "./PagesHub.js";
 import ProductPage from "./ProductPage.js";
 
 const requestURL = "https://my-json-server.typicode.com/VladSach/Retromagaz/db";
@@ -46,9 +48,34 @@ export function showPacMan(){
     `;
 };
 
+async function init_end_points(){
+
+    let data = await getData();
+
+    let products_end_points = [];
+
+    data.products.forEach(element => {
+        products_end_points.push(element.url)
+    });
+
+    products_end_points.push("clear");
+    
+
+
+    return {products_end_points}
+}
+
 let homePage = new HomePage();
 let productPage = new ProductPage();
-(function() {
+
+let hub = new PagesHub([productPage], homePage);
+
+(async function() {
+
+    let end_points = await init_end_points();  
+    
+    new Router(end_points, hub);
+    hub.loadHomePage();
     //homePage.loadHomePage();
-    productPage.loadProductPage();
+    //productPage.loadProductPage();
 })();

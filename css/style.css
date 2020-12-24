@@ -28,6 +28,12 @@ body{
     
 }
 
+#page-content{
+    height: 2200px;  
+    position: relative;
+    
+}
+
 /* HEADER */
 /* HEADER-UPPER */
 header{

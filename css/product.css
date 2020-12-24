@@ -107,6 +107,7 @@
     transition: .2s ease;
     display: none;
     margin-bottom: 20px;
+    margin-right: 1rem;
 }
 
 .info-item:hover {
@@ -188,6 +189,13 @@
     opacity: 0.8;
 }
 
+#fav_btn:hover svg path{
+    stroke: #49b749;
+    transition: .3s ease;
+}
+
+
+
 .text_1 {
     display: block;
 }
@@ -217,3 +225,100 @@
     width: 100%;
 }
 
+.product-content {
+    position: relative;
+    margin-bottom: 60px;
+    margin-left: 14%;
+    margin-right: 14%;
+    top: -110px;
+}
+
+.characteristics-block {
+    padding: 40px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 8px;
+    background: #212648;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.4);
+}
+
+.characteristics-block p, .description-block p {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 900;
+}
+
+.characteristics-content {
+    margin-top: 30px;
+}
+
+.characteristics-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.characteristics-content ul li{
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    position: relative;
+}
+
+.characteristics-content ul li p{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: none;
+}
+
+.characteristics-block li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #323963;
+    box-shadow: 0 0 2px rgba(0,0,0,.6);
+}
+
+.characteristics-title {
+    color: #c4c4c4;
+    max-width: 40%;
+    margin-bottom: 0;
+}
+
+.characteristics-value {
+    margin-top: 0;
+    margin-left: auto;
+    max-width: 60%;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.description-block {
+    width: 100%;
+    min-height: 350px;
+    padding: 40px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 8px;
+    background: #212648;
+    box-shadow: 0 5px 10px rgba(0,0,0,.4);
+    margin-bottom: 20px
+}
+
+.description-block-content {
+    margin-top: 30px;
+}
+
+.description-block-content p {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 22px;
+    font-weight: 500;
+}

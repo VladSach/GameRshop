@@ -8,7 +8,7 @@
         "image": "./images/products_img/ghost_of_tsushima.webp",
         "backgroundImage": "./images/products-bg-img/ghost_of_tsushima.png",
         "languages": ["English", ""],
-        "description": "Some description of the game",
+        "description": "<p>Some description of the game</p>",
         "sold": 650
     },
     {
@@ -20,8 +20,8 @@
         "image": "./images/products_img/spyro_reignited_trilogy.webp",
         "backgroundImage": "./images/products-bg-img/spyro_reignited_trilogy.png",
         "languages": ["English", "Russian"],
-        "description": "Some description of the game",
-        "sold": 211
+        "description": "<p>Some description of the game</p>",
+        "sold": 611
     },
     {
         "url": "jedi_fallen_order",
@@ -32,7 +32,7 @@
         "image": "./images/products_img/jedi_fallen_order.webp",
         "backgroundImage": "./images/products-bg-img/jedi_fallen_order.png",
         "languages": ["English", "Russian"],
-        "description": "Some description of the game",
+        "description": "<p>Some description of the game</p>",
         "sold": 870
     },
     {
@@ -44,11 +44,11 @@
         "image": "./images/products_img/days_gone.webp",
         "backgroundImage": "./images/products-bg-img/days_gone.png",
         "languages": ["English", "Russian"],
-        "description": "Some description of the game",
+        "description": "<p>Some description of the game</p>",
         "sold": 500
     },
     {
-        "url": "days_gone",
+        "url": "days_gon1e",
         "title": "Days Gone",
         "platform": ["Playstation 4", "", ""],
         "price": 499,
@@ -56,11 +56,11 @@
         "image": "./images/products_img/days_gone.webp",
         "backgroundImage": "./images/products-bg-img/days_gone.png",
         "languages": ["English", "Russian"],
-        "description": "Some description of the game",
+        "description": "<p>Some description of the game</p>",
         "sold": 500
     },
     {
-        "url": "days_gone",
+        "url": "days_go2ne",
         "title": "Days Gone",
         "platform": ["Playstation 4", "", ""],
         "price": 499,
@@ -68,7 +68,7 @@
         "image": "./images/products_img/days_gone.webp",
         "backgroundImage": "./images/products-bg-img/days_gone.png",
         "languages": ["English", "Russian"],
-        "description": "Some description of the game",
+        "description": "<p>Some description of the game</p>",
         "sold": 500
     }],
     "profile": {
