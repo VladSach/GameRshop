@@ -428,8 +428,15 @@ main {
     align-items: center;
 }
 
-.game-card-platform img {
+.platform-item {
+    display: none;
+}
+
+.Playstation, .Xbox, .Nintendo{
     display: block;
+}
+
+.game-card-platform img {
     width: 100%;
     margin-right: 10px;
     max-width: 50px;

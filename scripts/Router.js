@@ -4,6 +4,7 @@ export default class Router {
         window.addEventListener('hashchange', () => this.onRouteChange());
 
         this.end_points = {
+            "home": '',
             "product": products_end_points
         }
         
@@ -64,7 +65,7 @@ export default class Router {
     }
 
     loadHome(){
-        history.pushState(null, null, '/');
+        history.pushState(null, null, '#home');
         this.hub.loadDefaultPage();
     }
 }
