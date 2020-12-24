@@ -136,7 +136,7 @@ export default class HomePage {
             best_sellers_content += `
                 <div class="game-card">
                     <a class="game-card-image" href="#product/${game.url}">
-                           <img src="${game.image}" alt="game image">
+                           <img src="./images/products_img/${game.image}" alt="game image">
                     </a>
                     <a class="game-card-title" href="#product/${game.url}">${game.title}</a>
                     <div class="game-card-price">

@@ -5,8 +5,8 @@
         "platform": ["Playstation 4", "", ""],
         "price": 1349,
         "genres": ["Action", "Andventure"],
-        "image": "./images/products_img/ghost_of_tsushima.webp",
-        "backgroundImage": "./images/products-bg-img/ghost_of_tsushima.png",
+        "image": "ghost_of_tsushima.webp",
+        "backgroundImage": "ghost_of_tsushima.png",
         "languages": ["English", ""],
         "description": "<p>Some description of the game</p>",
         "sold": 650
@@ -17,8 +17,8 @@
         "platform": ["Playstation 4", "", ""],
         "price": 589,
         "genres": ["Andventure", "For children"],
-        "image": "./images/products_img/spyro_reignited_trilogy.webp",
-        "backgroundImage": "./images/products-bg-img/spyro_reignited_trilogy.png",
+        "image": "spyro_reignited_trilogy.webp",
+        "backgroundImage": "spyro_reignited_trilogy.png",
         "languages": ["English", "Russian"],
         "description": "<p>Some description of the game</p>",
         "sold": 611
@@ -29,8 +29,8 @@
         "platform": ["Playstation 4", "Xbox One", ""],
         "price": 929,
         "genres": ["Action", "Roleplaying"],
-        "image": "./images/products_img/jedi_fallen_order.webp",
-        "backgroundImage": "./images/products-bg-img/jedi_fallen_order.png",
+        "image": "jedi_fallen_order.webp",
+        "backgroundImage": "jedi_fallen_order.png",
         "languages": ["English", "Russian"],
         "description": "<p>Some description of the game</p>",
         "sold": 870
@@ -41,8 +41,8 @@
         "platform": ["Playstation 4", "", ""],
         "price": 499,
         "genres": ["Action", "Andventure", "Horror"],
-        "image": "./images/products_img/days_gone.webp",
-        "backgroundImage": "./images/products-bg-img/days_gone.png",
+        "image": "days_gone.webp",
+        "backgroundImage": "days_gone.png",
         "languages": ["English", "Russian"],
         "description": "<p>Some description of the game</p>",
         "sold": 500

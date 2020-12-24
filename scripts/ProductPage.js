@@ -37,14 +37,14 @@ export default class ProductPage {
     pageHTML(game){
         return  `
         <div class="product-bg-img">
-            <img src="${game.backgroundImage}" alt="product bg img">
+            <img src="./images/products-bg-img/${game.backgroundImage}" alt="product bg img">
             <div class="gradient"></div>
         </div>
 
         <div class="product-container">
             <div class="product-info-wrap">
                 <div class="product-image">
-                    <img src="${game.image}" alt="prod img">
+                    <img src="./images/products_img/${game.image}" alt="prod img">
                 </div>
                 <div class="product-details">
                     <div class="product-title">
