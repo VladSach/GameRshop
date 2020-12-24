@@ -111,25 +111,25 @@
         "url": "rise_of_the_tomb_rider",
         "title": "Rise of The Tomb Roder",
         "platform": ["Playstation 4", "Xbox One", ""],
-        "price": 699,
+        "price": 599,
         "genres": ["Action", "Adventure", "Stealth"],
         "image": "./images/products_img/rise_of_the_tomb_rider.webp",
         "backgroundImage": "./images/products-bg-img/rise_of_the_tomb_rider.png",
         "languages": ["English", ""],
-        "description": "<p>Some description of the game</p>",
+        "description": "<p>Rise of the Tomb Raider is a 2015 action-adventure video game developed by Crystal Dynamics. It is the sequel to the 2013 video game Tomb Raider and the eleventh entry in the Tomb Raider series.</p>",
         "sold": 570
     },
     {
-        "url": "resident_evil_2",
-        "title": "RESIDENT EVIL 2",
-        "platform": ["Playstation 4", "", ""],
+        "url": "super_mario_odyssey",
+        "title": "Super Mario Odyssey",
+        "platform": ["", "", "Nintendo Switch"],
         "price": 699,
-        "genres": ["Action", "Shooter", "Horror"],
-        "image": "./images/products_img/resident_evil_2.webp",
-        "backgroundImage": "./images/products-bg-img/resident_evil_2.png",
-        "languages": ["English", "Russian"],
-        "description": "<p>Some description of the game</p>",
-        "sold": 1673
+        "genres": ["Action", "Adventure", "Platformer"],
+        "image": "./images/products_img/super_mario_odyssey.webp",
+        "backgroundImage": "./images/products-bg-img/super_mario_odyssey.png",
+        "languages": ["English", ""],
+        "description": "<p>Super Mario Odyssey is a platform game developed and published by Nintendo for the Nintendo Switch on October 27, 2017.</p>",
+        "sold": 935
     }],
     "profile": {
     "name": "typicode"
