@@ -7,6 +7,7 @@
         "genres": ["Action", "Andventure"],
         "image": "./images/products_img/ghost_of_tsushima.webp",
         "backgroundImage": "./images/products-bg-img/ghost_of_tsushima.png",
+        "languages": ["English", ""],
         "description": "Some description of the game",
         "sold": 650
     },
@@ -18,6 +19,7 @@
         "genres": ["Andventure", "For children"],
         "image": "./images/products_img/spyro_reignited_trilogy.webp",
         "backgroundImage": "./images/products-bg-img/spyro_reignited_trilogy.png",
+        "languages": ["English", "Russian"],
         "description": "Some description of the game",
         "sold": 211
     },
@@ -29,6 +31,7 @@
         "genres": ["Action", "Roleplaying"],
         "image": "./images/products_img/jedi_fallen_order.webp",
         "backgroundImage": "./images/products-bg-img/jedi_fallen_order.png",
+        "languages": ["English", "Russian"],
         "description": "Some description of the game",
         "sold": 870
     },
@@ -40,6 +43,7 @@
         "genres": ["Action", "Andventure", "Horror"],
         "image": "./images/products_img/days_gone.webp",
         "backgroundImage": "./images/products-bg-img/days_gone.png",
+        "languages": ["English", "Russian"],
         "description": "Some description of the game",
         "sold": 500
     },
@@ -50,6 +54,8 @@
         "price": 499,
         "genres": ["Action", "Andventure", "Horror"],
         "image": "./images/products_img/days_gone.webp",
+        "backgroundImage": "./images/products-bg-img/days_gone.png",
+        "languages": ["English", "Russian"],
         "description": "Some description of the game",
         "sold": 500
     },
@@ -60,6 +66,8 @@
         "price": 499,
         "genres": ["Action", "Andventure", "Horror"],
         "image": "./images/products_img/days_gone.webp",
+        "backgroundImage": "./images/products-bg-img/days_gone.png",
+        "languages": ["English", "Russian"],
         "description": "Some description of the game",
         "sold": 500
     }],

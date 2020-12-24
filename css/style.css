@@ -202,10 +202,13 @@ button {
 main {
     width: 100%; 
     position: relative;
+    
 }
 
 #page-content{
     height: 2200px;  
+    position: relative;
+    
 }
 
 .pacman-loader {
