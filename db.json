@@ -109,7 +109,7 @@
     },
     {
         "url": "rise_of_the_tomb_rider",
-        "title": "Rise of The Tomb Roder",
+        "title": "Rise of the Tomb Roder",
         "platform": ["Playstation 4", "Xbox One", ""],
         "price": 599,
         "genres": ["Action", "Adventure", "Stealth"],
@@ -123,13 +123,25 @@
         "url": "super_mario_odyssey",
         "title": "Super Mario Odyssey",
         "platform": ["", "", "Nintendo Switch"],
-        "price": 699,
+        "price": 1699,
         "genres": ["Action", "Adventure", "Platformer"],
         "image": "./images/products_img/super_mario_odyssey.webp",
         "backgroundImage": "./images/products-bg-img/super_mario_odyssey.png",
         "languages": ["English", ""],
         "description": "<p>Super Mario Odyssey is a platform game developed and published by Nintendo for the Nintendo Switch on October 27, 2017.</p>",
         "sold": 935
+    },
+    {
+        "url": "zelda_breath_of_the_wild",
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "platform": ["", "", "Nintendo Switch"],
+        "price": 1699,
+        "genres": ["Action", "Adventure", "Roleplaying"],
+        "image": "./images/products_img/zelda_breath_of_the_wild.webp",
+        "backgroundImage": "./images/products-bg-img/zelda_breath_of_the_wild.png",
+        "languages": ["English", "Japanese"],
+        "description": "<p>The Legend of Zelda: Breath of the Wild is a 2017 action-adventure game developed and published by Nintendo for the Nintendo Switch and Wii U consoles. Breath of the Wild is part of the Legend of Zelda franchise and is set at the end of the Zelda timeline.</p>",
+        "sold": 4235
     }],
     "profile": {
     "name": "typicode"
