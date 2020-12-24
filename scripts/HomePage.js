@@ -7,7 +7,6 @@ export default class HomePage {
         this.content = document.getElementById("page-content");
     }
 
-    
 
     async loadHomePage(){
 
@@ -36,12 +35,10 @@ export default class HomePage {
         <div class="slider">
                 
             <div class="slides">
-
                 <input type="radio" name="r" id="r1" checked>
                 <input type="radio" name="r" id="r2" >
                 <input type="radio" name="r" id="r3" >
                 <input type="radio" name="r" id="r4" >
-
                 <div class="slide curS">
                     <a href="">
                         <img src="images/slider/image1.webp" alt="Slide">
@@ -64,7 +61,6 @@ export default class HomePage {
                 </div>
                 
             </div>
-
             <div class="navigation">
                 <label for="r1" class="slider-bar"></label>
                 <label for="r2" class="slider-bar"></label>
@@ -136,7 +132,7 @@ export default class HomePage {
             best_sellers_content += `
                 <div class="game-card">
                     <a class="game-card-image" href="#product/${game.url}">
-                           <img src="./images/products_img/${game.image}" alt="game image">
+                           <img src="${game.image}" alt="game image">
                     </a>
                     <a class="game-card-title" href="#product/${game.url}">${game.title}</a>
                     <div class="game-card-price">
