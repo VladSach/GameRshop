@@ -56,13 +56,13 @@ export default class ProductPage {
                                 <p>Platform</p>
                                 <div class="platform-list">
                                     <span class="info-item ${game.platform[0]}">
-                                        <img src="../images/platforms/${game.platform[0]}.svg" alt=' '>
+                                        <img src="./images/platforms/${game.platform[0]}.svg" alt=' '>
                                     </span>
                                     <span class="info-item ${game.platform[1]}">
-                                        <img src="../images/platforms/${game.platform[1]}.svg" alt=' '>
+                                        <img src="./images/platforms/${game.platform[1]}.svg" alt=' '>
                                     </span>
                                     <span class="info-item ${game.platform[2]}">
-                                        <img src="../images/platforms/${game.platform[2]}.svg" alt=' '>
+                                        <img src="./images/platforms/${game.platform[2]}.svg" alt=' '>
                                     </span>
                                 </div>
                             </div>
