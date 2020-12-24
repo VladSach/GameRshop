@@ -19,5 +19,5 @@ let homePage = new HomePage();
 let productPage = new ProductPage();
 (function() {
     //homePage.loadHomePage();
-    //productPage.loadProductPage();
+    productPage.loadProductPage();
 })();

@@ -6,7 +6,7 @@
         "price": 1349,
         "genres": ["Action", "Andventure"],
         "image": "./images/products_img/ghost_of_tsushima.webp",
-        "background-image": "./images/products-bg-img/ghost_of_tsushima.png",
+        "backgroundImage": "./images/products-bg-img/ghost_of_tsushima.png",
         "description": "Some description of the game",
         "sold": 650
     },
@@ -17,7 +17,7 @@
         "price": 589,
         "genres": ["Andventure", "For children"],
         "image": "./images/products_img/spyro_reignited_trilogy.webp",
-        "background-image": "./images/products-bg-img/spyro_reignited_trilogy.png",
+        "backgroundImage": "./images/products-bg-img/spyro_reignited_trilogy.png",
         "description": "Some description of the game",
         "sold": 211
     },
@@ -28,7 +28,7 @@
         "price": 929,
         "genres": ["Action", "Roleplaying"],
         "image": "./images/products_img/jedi_fallen_order.webp",
-        "background-image": "./images/products-bg-img/jedi_fallen_order.png",
+        "backgroundImage": "./images/products-bg-img/jedi_fallen_order.png",
         "description": "Some description of the game",
         "sold": 870
     },
@@ -39,7 +39,7 @@
         "price": 499,
         "genres": ["Action", "Andventure", "Horror"],
         "image": "./images/products_img/days_gone.webp",
-        "background-image": "./images/products-bg-img/days_gone.png",
+        "backgroundImage": "./images/products-bg-img/days_gone.png",
         "description": "Some description of the game",
         "sold": 500
     },

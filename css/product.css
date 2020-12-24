@@ -1,8 +1,22 @@
-.product-bg-image{
+.product-bg-image {
     position: absolute;
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-z-index: -1;
-width: 100%;
+    z-index: -1;
+    width: 100%;
+}
+
+.product-bg-image img {
+    width: 100%;
+}
+
+.gradient {
+    background: linear-gradient(180deg,rgba(19,23,48,0) 62.18%,#131730 100%),linear-gradient(269.91deg,#131730 .07%,rgba(19,23,48,0) 49.99%,#131730 99.9%),linear-gradient(180deg,rgba(19,23,48,0) 0,#131730 100%);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    
 }

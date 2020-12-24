@@ -27,7 +27,10 @@ export default class ProductPage {
 
 
         this.content.innerHTML = `
-        
+            <div class="product-bg-img">
+                <img src="${product.backgroundImage}" alt="product bg img">
+                <div class="gradient"></div>
+            </div>
         `;
     }
 }
