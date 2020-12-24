@@ -68,14 +68,14 @@ async function init_end_points(){
 let homePage = new HomePage();
 let productPage = new ProductPage();
 
-let hub = new PagesHub([productPage], homePage);
+let hub = new PagesHub([homePage, productPage], homePage);
 
 (async function() {
 
     let end_points = await init_end_points();  
     
     new Router(end_points, hub);
-    hub.loadHomePage();
+    hub.loadDefaultPage();
     //homePage.loadHomePage();
     //productPage.loadProductPage();
 })();

@@ -110,14 +110,14 @@
     {
         "url": "rise_of_the_tomb_rider",
         "title": "Rise of the Tomb Roder",
-        "platform": ["Playstation 4", "Xbox One", ""],
+        "platform": ["", "Xbox One", ""],
         "price": 599,
         "genres": ["Action", "Adventure", "Stealth"],
         "image": "./images/products_img/rise_of_the_tomb_rider.webp",
         "backgroundImage": "./images/products-bg-img/rise_of_the_tomb_rider.png",
         "languages": ["English", ""],
         "description": "<p>Rise of the Tomb Raider is a 2015 action-adventure video game developed by Crystal Dynamics. It is the sequel to the 2013 video game Tomb Raider and the eleventh entry in the Tomb Raider series.</p>",
-        "sold": 570
+        "sold": 1970
     },
     {
         "url": "super_mario_odyssey",

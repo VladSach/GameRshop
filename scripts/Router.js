@@ -1,13 +1,13 @@
 export default class Router {
     constructor({products_end_points}, hub){
         
+        window.addEventListener('hashchange', () => this.onRouteChange());
+
         this.end_points = {
             "product": products_end_points
         }
         
         this.hub = hub;
-
-        window.addEventListener('hashchange', () => this.onRouteChange());
 
         if (window.location.hash){
             this.loadHome();
@@ -65,6 +65,6 @@ export default class Router {
 
     loadHome(){
         history.pushState(null, null, '/');
-        this.hub.loadPage();
+        this.hub.loadDefaultPage();
     }
 }
