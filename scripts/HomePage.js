@@ -3,10 +3,9 @@ import {showPacMan} from "./script.js"
 
 export default class HomePage {
     constructor (){
-        this.route = '{{ "/" | relative_url }}';
+        this.route = 'home';
         this.content = document.getElementById("page-content");
     }
-
 
     async loadHomePage(){
 

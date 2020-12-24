@@ -12,7 +12,6 @@ export default class Router {
         if (window.location.hash){
             this.loadHome();
         }
-            
     }
 
     onRouteChange() {
@@ -65,7 +64,7 @@ export default class Router {
     }
 
     loadHome(){
-        history.pushState(null, null, '{{ "/" | relative_url }}');
-        this.hub.loadHomePage();
+        history.pushState(null, null, '/');
+        this.hub.loadPage();
     }
 }
