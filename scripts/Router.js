@@ -65,7 +65,7 @@ export default class Router {
     }
 
     loadHome(){
-        history.pushState(null, null, '/');
+        history.pushState(null, null, '{{ "/" | relative_url }}');
         this.hub.loadHomePage();
     }
 }

@@ -3,7 +3,7 @@ import {showPacMan} from "./script.js"
 
 export default class HomePage {
     constructor (){
-        this.route = '/';
+        this.route = '{{ "/" | relative_url }}';
         this.content = document.getElementById("page-content");
     }
 
