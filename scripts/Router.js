@@ -65,7 +65,7 @@ export default class Router {
     }
 
     loadHome(){
-        history.pushState(null, null, '#home');
+        history.pushState(null, null, '/Retromagaz/#home');
         this.hub.loadDefaultPage();
     }
 }
