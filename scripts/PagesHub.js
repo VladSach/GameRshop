@@ -1,5 +1,3 @@
-import {getData} from "./script.js";
-
 export default class PagesHub {
     constructor(pages, homePage){
         this.pages = pages;

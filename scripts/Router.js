@@ -1,5 +1,3 @@
-import {getData} from "./script.js"
-
 export default class Router {
     constructor({products_end_points}, hub){
         
@@ -18,7 +16,7 @@ export default class Router {
     }
 
     onRouteChange() {
-        
+
         window.scrollTo({
             left:0,
             top:0,

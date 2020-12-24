@@ -143,9 +143,9 @@ export default class HomePage {
                         <p>${game.price} ₴</p>
                     </div>
                     <div class="game-card-platform">
-                        <img src="../images/platforms/${game.platform[0]}.svg" alt=' '>
-                        <img src="../images/platforms/${game.platform[1]}.svg" alt=' '>
-                        <img src="../images/platforms/${game.platform[2]}.svg" alt=' '>
+                        <img src="./images/platforms/${game.platform[0]}.svg" alt=' '>
+                        <img src="./images/platforms/${game.platform[1]}.svg" alt=' '>
+                        <img src="./images/platforms/${game.platform[2]}.svg" alt=' '>
                     </div>
                 </div>
             `;
