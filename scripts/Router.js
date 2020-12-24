@@ -18,6 +18,13 @@ export default class Router {
     }
 
     onRouteChange() {
+        
+        window.scrollTo({
+            left:0,
+            top:0,
+            behavior: 'smooth'
+        });
+
         const hashLocation = window.location.hash.substring(1);
         const splitedHash = hashLocation.split('/');
 
