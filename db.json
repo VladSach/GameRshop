@@ -16,7 +16,7 @@
         "title": "Spyro Reignited Trilogy",
         "platform": ["Playstation 4", "", "Nintendo Switch"],
         "price": 589,
-        "genres": ["Andventure", "For children"],
+        "genres": ["Andventure", "Platformer"],
         "image": "./images/products_img/spyro_reignited_trilogy.webp",
         "backgroundImage": "./images/products-bg-img/spyro_reignited_trilogy.png",
         "languages": ["English", "Russian"],

@@ -21,7 +21,7 @@ export async function getData(){
 
 export function showPacMan(){
     return `
-    <div class="pacman-loader" role="status">
+        <div class="pacman-loader" role="status">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
                     <g>
                         <circle cx="63.2327" cy="50" r="4" fill="#fff">

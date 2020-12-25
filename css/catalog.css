@@ -26,30 +26,41 @@
     will-change: min-height;
 }
 
-.toggle_row {
+.toggle-row {
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
 }
 
-.prices_title {
+.toggle-title {
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-.price_ranges {
+.price-ranges {
     display: flex;
     margin-top: 15px;
 }
 
-.prices_input {
+.price-ranges::after, .checkbox-wrap::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: #323963;
+    box-shadow: 0 0 2px rgba(0,0,0,.6);
+}
+
+.price-input {
     display: flex;
     flex-direction: row;
 }
 
-.form_group {
+.form-group-price {
     width: 105px;
     position: relative;
     margin-right: 10px;
@@ -57,7 +68,7 @@
     max-width: 100%;
 }
 
-#price_from {
+#price-from, #price-to {
     height: 40px;
     padding: 10px;
     text-align: center;
@@ -74,3 +85,101 @@
     color: #fff;
     font-family: Montserrat;
 }
+
+#price-btn {
+    min-width: 35px;
+    background: #49b749;
+    box-shadow: 0 2px 3px rgba(0,0,0,.4);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+#price-btn:hover {
+    opacity: 0.7;
+}
+
+.checkbox-row {
+    display: block;
+    margin-top: 15px;
+}
+
+.check-group {
+    padding: 10px 0;
+    position: relative;
+    text-decoration: none;
+}
+
+.check-group input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    outline: 0;
+    border: none;
+    font-family: Montserrat;
+}
+
+.check-group input:checked + label::before{
+    content: url('../images/svg/check-solid.svg');
+}
+
+.check-group label {
+    padding-bottom: 15px;
+    font-size: 16px;
+    line-height: 20px;
+    transition: color .2s ease;
+    font-weight: 500;
+    color: #fff;
+    padding-left: 30px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.check-group label::before {
+    top: -1px;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3c4b72;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0,0,0,.4);
+    border-radius: 4px;
+}
+
+
+.check-group label::after {
+    opacity: 1;
+    top: 4px;
+    content: '';
+    position: absolute;
+    left: 5px;
+    transform: rotate(-45deg);
+    width: 10px;
+    height: 6px;
+    opacity: 0;
+    border-bottom: 2px solid #49b749;
+    border-left: 2px solid #49b749;
+    transition: .2s ease;
+}
+
+.check-group label:hover {
+    color: #49b749;
+}
+
