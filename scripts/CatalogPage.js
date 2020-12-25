@@ -43,9 +43,7 @@ export default class CatalogPage {
         }
 
         if (this.genresToShow.length != 7){
-            //console.log(filteredCatalog)
             this.genresToShow.forEach(genre => {
-                console.log(genre)
                 filteredCatalog.forEach(game => {
                     if(!game.genres.includes(genre)){
                         filteredCatalog.splice(filteredCatalog.indexOf(game), 1);
@@ -88,25 +86,24 @@ export default class CatalogPage {
 
                 if(this.genresToShow.length == 7){
                     this.genresToShow  = [];
+                    this.refreshPage(catalog, hash);
                 }
 
                 if (e.target.checked){
                     this.genresToShow.push(e.target.id.slice(6,))
-                    this.refreshPage(catalog, hash, this.genresToShow);
-
-                    console.log(this.genresToShow)
+                    this.refreshPage(catalog, hash);
                     
                 } else if (!e.target.checked) {
-                    this.genresToShow.splice(this.genresToShow.indexOf(e.target), 1);
-                    this.refreshPage(catalog, hash, this.genresToShow);
-                }
-
-                if (this.genresToShow.includes(genre)) {
+                    console.log(this.genresToShow.indexOf(e.target))
                     console.log(this.genresToShow)
-                    console.log(genre)
-                    genre.checked = true;
+                    this.genresToShow.splice(this.genresToShow.indexOf(genre.id.slice(6,)), 1);
+                    this.refreshPage(catalog, hash);
                 }
             });
+
+            if (this.genresToShow.includes(genre.id.slice(6,))) {
+                genre.checked = true;
+            }
         });
 
     }
