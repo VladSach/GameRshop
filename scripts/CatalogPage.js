@@ -35,7 +35,7 @@ export default class CatalogPage {
             </div>
         `;
 
-        this.getSidebarChecboxes();
+        this.getSidebarCheckboxes();
         
     }
 
@@ -170,7 +170,7 @@ export default class CatalogPage {
         `;
     }
 
-    getSidebarChecboxes(){
+    getSidebarCheckboxes(){
 
         let platformsCheckbox = [];
         platformsCheckbox[0] = document.getElementById("check-playstation-4");
