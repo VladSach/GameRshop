@@ -26,7 +26,33 @@ export default class CatalogPage {
 
         this.genresToShow = this.allGenres;
 
+        this.content.innerHTML = `
+            <div class="container">
+                <div class="products-list">
+                    <div class="products-list-sidebar">
+                        ${this.loadCatalogListSidebar()}
+                    </div>
+                    <div class="products-list-catalog">
+                        <div class="top-section">
+                            <div class="catalog-control">
+                                <a href="javascript:void(0);" class="catalog-sort active">Expensive first</a>
+                                <a href="javascript:void(0);" class="catalog-sort">Cheap first</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-content">
+                            ${this.loadCatalog(allProducts)}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        `; 
+
+        this.eventListener(allProducts, hash);
+
         this.refreshPage(allProducts, hash);
+        
     }
 
     sortProducts(catalog, hash = null) {
@@ -41,8 +67,14 @@ export default class CatalogPage {
             });
 
         }
+        
+        
+        if (this.genresToShow.length != 7) {
+            if (this.genresToShow.length == 0) {
+                filteredCatalog = [];
+                return filteredCatalog;
+            }
 
-        if (this.genresToShow.length != 7){
             this.genresToShow.forEach(genre => {
                 filteredCatalog.forEach(game => {
                     if(!game.genres.includes(genre)){
@@ -51,6 +83,13 @@ export default class CatalogPage {
                 });
             });
         }
+
+        // let prices = this.getPrices();
+        // filteredCatalog.forEach(product => {
+        //     if(product.price < prices[0].value && product.price > prices[1].value){
+        //         filteredCatalog.splice(filteredCatalog.indexOf(product, 1));
+        //     }
+        // });
 
         return filteredCatalog;
     }
@@ -64,12 +103,12 @@ export default class CatalogPage {
                 
                 if (e.target.checked) {
                     history.pushState(null, null, '#catalog/' + e.target.id.slice(6,));
-                    this.refreshPage(catalog, e.target.id.slice(6,), null);
+                    this.refreshPage(catalog, e.target.id.slice(6,));
                     this.genresToShow = this.allGenres;
                     
                 } else if (!e.target.checked) {
                     history.pushState(null, null, '#catalog');
-                    this.refreshPage(catalog, null, null);
+                    this.refreshPage(catalog, null);
                     this.genresToShow = this.allGenres;
                 }
             });
@@ -86,7 +125,6 @@ export default class CatalogPage {
 
                 if(this.genresToShow.length == 7){
                     this.genresToShow  = [];
-                    this.refreshPage(catalog, hash);
                 }
 
                 if (e.target.checked){
@@ -94,8 +132,6 @@ export default class CatalogPage {
                     this.refreshPage(catalog, hash);
                     
                 } else if (!e.target.checked) {
-                    console.log(this.genresToShow.indexOf(e.target))
-                    console.log(this.genresToShow)
                     this.genresToShow.splice(this.genresToShow.indexOf(genre.id.slice(6,)), 1);
                     this.refreshPage(catalog, hash);
                 }
@@ -105,6 +141,29 @@ export default class CatalogPage {
                 genre.checked = true;
             }
         });
+
+        // let prices = this.getPrices();
+        // prices.forEach(price => {
+        //     price.addEventListener('input', () => {
+                
+        //     })
+        // })
+
+        let sort = [];
+        sort[0] = document.querySelectorAll(".catalog-sort")[0];
+        sort[1] = document.querySelectorAll(".catalog-sort")[1];
+        
+        addEventListener('click', (e) => {
+            if (e.target == sort[0]) {
+                sort[0].classList.add("active");
+                sort[1].classList.remove("active");
+                
+            } else if (e.target == sort[1]) {
+                sort[1].classList.add("active");
+                sort[0].classList.remove("active");
+            }
+        })
+
 
     }
 
@@ -156,6 +215,13 @@ export default class CatalogPage {
         genresChechbox[5] = document.getElementById("check-Platformer");
         genresChechbox[6] = document.getElementById("check-Roleplaying");
         return genresChechbox;
+    }
+
+    getPrices() {
+        let priceValue = [];
+        priceValue[0] = document.getElementById("price-from");
+        priceValue[1] = document.getElementById("price-to");
+        return priceValue;
     }
 
     loadCatalogListSidebar() {
