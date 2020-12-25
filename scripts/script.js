@@ -1,9 +1,11 @@
+import Cart from "./Cart.js";
 import Router from "./Router.js";
 import HomePage from "./HomePage.js";
 import PagesHub from "./PagesHub.js";
 import ProductPage from "./ProductPage.js";
+import CatalogPage from "./CatalogPage.js";
 
-const requestURL = "https://my-json-server.typicode.com/VladSach/Retromagaz/db";
+const requestURL = "https://my-json-server.typicode.com/VladSach/GameRshop/db";
 
 export async function getData(){
 
@@ -53,29 +55,29 @@ async function init_end_points(){
     let data = await getData();
 
     let products_end_points = [];
+    let catalog_end_points = [];
 
     data.products.forEach(element => {
-        products_end_points.push(element.url)
+        products_end_points.push(element.url);
     });
 
-    products_end_points.push("clear");
-    
+    catalog_end_points = ["playstation_4", "xbox_one", "nintendo_switch"];
 
-
-    return {products_end_points}
+    return {products_end_points, catalog_end_points}
 }
 
+let cart = new Cart();
 let homePage = new HomePage();
 let productPage = new ProductPage();
+let catalogPage = new CatalogPage();
 
-let hub = new PagesHub([homePage, productPage], homePage);
+let hub = new PagesHub([cart, homePage, productPage, catalogPage], homePage);
 
 (async function() {
 
     let end_points = await init_end_points();  
-    
+
     new Router(end_points, hub);
     hub.loadDefaultPage();
-    //homePage.loadHomePage();
-    //productPage.loadProductPage();
+
 })();

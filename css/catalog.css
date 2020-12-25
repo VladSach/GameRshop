@@ -1,0 +1,76 @@
+.container {
+    max-width: 1390px;
+    margin-top: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 14%;
+    margin-right: 14%;
+}
+
+.products-list {
+    display: flex;
+}
+
+.products-list-sidebar {
+    width: 305px;
+    margin-right: 40px;
+    background: #131730;
+}
+
+.filter-block {
+    position: relative;
+    height: 100%;
+}
+
+#fixed-filter {
+    will-change: min-height;
+}
+
+.toggle_row {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.prices_title {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.price_ranges {
+    display: flex;
+    margin-top: 15px;
+}
+
+.prices_input {
+    display: flex;
+    flex-direction: row;
+}
+
+.form_group {
+    width: 105px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+#price_from {
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    line-height: 17px;
+    border: 2px solid #3c4b72;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0,0,0,.4);
+    border-radius: 4px;
+    width: 100%;
+    background: 0 0;
+    font-weight: 500;
+    font-size: 16px;
+    outline: 0;
+    color: #fff;
+    font-family: Montserrat;
+}

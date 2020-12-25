@@ -12,7 +12,7 @@ export default class PagesHub {
         }
     }
 
-    loadByHash(route, hash=null){
+    loadByHash(route, hash = null){
         let page = this.getPage(route);
         if(!page.loadPage(hash))
             this.loadDefaultPage();
@@ -20,5 +20,10 @@ export default class PagesHub {
 
     loadDefaultPage(){
         this.homePage.loadHomePage();
+    }
+
+    loadCart(){
+        let page = this.getPage("cart");
+        
     }
 }

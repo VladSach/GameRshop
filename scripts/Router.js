@@ -1,11 +1,12 @@
 export default class Router {
-    constructor({products_end_points}, hub){
+    constructor({products_end_points, catalog_end_points}, hub){
         
         window.addEventListener('hashchange', () => this.onRouteChange());
 
         this.end_points = {
             "home": '',
-            "product": products_end_points
+            "product": products_end_points,
+            "catalog": catalog_end_points
         }
         
         this.hub = hub;
@@ -23,8 +24,8 @@ export default class Router {
             behavior: 'smooth'
         });
 
-        const hashLocation = window.location.hash.substring(1);
-        const splitedHash = hashLocation.split('/');
+        const fullRoute = window.location.hash.substring(1);
+        const splitedHash = fullRoute.split('/');
 
         let route;
         let hash;
@@ -58,14 +59,13 @@ export default class Router {
                 this.hub.loadByHash(route);
                 return true;
             }
-            
         }
         return false;
         
     }
 
     loadHome(){
-        history.pushState(null, null, '/Retromagaz/#home');
+        history.pushState(null, null, '#home'); // /GameRshop/#home - git
         this.hub.loadDefaultPage();
     }
 }
