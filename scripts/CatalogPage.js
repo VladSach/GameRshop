@@ -18,9 +18,9 @@ export default class CatalogPage {
         this.content.innerHTML = showPacMan();
 
         let data = await getData();
-        let catalog = data.products; 
+        let allProducts = data.products; 
 
-        let catalogHTML = this.sortProducts(catalog, hash);
+        let catalog = this.sortProducts(allProducts, hash);
 
         this.content.innerHTML = `
             <div class="container">
@@ -28,15 +28,24 @@ export default class CatalogPage {
                     <div class="products-list-sidebar">
                         ${this.loadCatalogListSidebar()}
                     </div>
-                    <div class="products-list-conteiner">
-                        
+                    <div class="products-list-catalog">
+                        <div class="top-section">
+                            <div class="catalog-control">
+                                <a href="javascript:void(0);" class="catalog-sort active">Expensive first</a>
+                                <a href="javascript:void(0);" class="catalog-sort">Cheap first</a>
+                            </div>
+                        </div>
+
+                        <div class="catalog-content">
+                            ${this.loadCatalog(catalog)}
+                        </div>
+
                     </div>
                 </div>
             </div>
-        `;
+        `; 
 
-        this.getSidebarCheckboxes();
-        
+        this.eventListener();
     }
 
     sortProducts(catalog, hash = null) {
@@ -51,22 +60,55 @@ export default class CatalogPage {
             });
         }
 
-        let html = this.loadCatalogItems(filteredCatalog);
-
-        return html;
+        return filteredCatalog;
     }
 
-    loadCatalogItems(catalog) {
-        let catalog_content = '';
+    eventListener(){
 
-        catalog.forEach(products => {
-            catalog_content += `
+        let platformsCheckbox = [];
+        platformsCheckbox[0] = document.getElementById("check-playstation-4");
+        platformsCheckbox[1] = document.getElementById("check-xbox-one");
+        platformsCheckbox[2] = document.getElementById("check-nintendo-switch");
+
+        platformsCheckbox.forEach(platform => {
+            platform.addEventListener('change', (e) => {
                 
-            `;
+                if (e.target.checked) {
+                    history.pushState(null, null, '#catalog/playstation_4');
+                }
+
+            });
         });
 
-        return catalog_content
+        platformsCheckbox.forEach(platform => {
+            platform.addEventListener('change', (e) => {
+            });
+        });
+
+        platformsCheckbox.forEach(platform => {
+            platform.addEventListener('change', (e) => {
+            });
+        });
+
+        let genresChechbox = [];
+        genresChechbox[0] = document.getElementById("check-action");
+        genresChechbox[1] = document.getElementById("check-horror");
+        genresChechbox[2] = document.getElementById("check-shooter");
+        genresChechbox[3] = document.getElementById("check-stealth");
+        genresChechbox[4] = document.getElementById("check-andventure");
+        genresChechbox[5] = document.getElementById("check-platformer");
+        genresChechbox[6] = document.getElementById("check-roleplaying");
+
+        genresChechbox.forEach(genre => {
+            genre.addEventListener('change', (e) => {
+                console.log(genre);
+            });
+        });
+
+        
     }
+
+
 
     loadCatalogListSidebar(){
         return `
@@ -170,35 +212,28 @@ export default class CatalogPage {
         `;
     }
 
-    getSidebarCheckboxes(){
+    loadCatalog(catalog){
+        let catalog_content = '';
 
-        let platformsCheckbox = [];
-        platformsCheckbox[0] = document.getElementById("check-playstation-4");
-        platformsCheckbox[1] = document.getElementById("check-xbox-one");
-        platformsCheckbox[2] = document.getElementById("check-nintendo-switch");
-
-        let genresChechbox = [];
-        genresChechbox[0] = document.getElementById("check-action");
-        genresChechbox[1] = document.getElementById("check-horror");
-        genresChechbox[2] = document.getElementById("check-shooter");
-        genresChechbox[3] = document.getElementById("check-stealth");
-        genresChechbox[4] = document.getElementById("check-andventure");
-        genresChechbox[5] = document.getElementById("check-platformer");
-        genresChechbox[6] = document.getElementById("check-roleplaying");
-
-        platformsCheckbox.forEach(platform => {
-            platform.addEventListener('change', (e) => {
-                if (platform.checked && platform == platformsCheckbox[0]) {
-                    history.pushState(null, null, '#catalog/playstation_4');
-                    console.log("ps4")
-                }
-            });
+        catalog.forEach(game => {
+            catalog_content += `
+                <div class="game-card">
+                    <a class="game-card-image" href="#product/${game.url}">
+                           <img src="${game.image}" alt="game image">
+                    </a>
+                    <a class="game-card-title" href="#product/${game.url}">${game.title}</a>
+                    <div class="game-card-price">
+                        <p>${game.price} ₴</p>
+                    </div>
+                    <div class="game-card-platform">
+                        <span class="platform-item ${game.platform[0]}"><img src="./images/platforms/${game.platform[0]}.svg" alt=''></span>
+                        <span class="platform-item ${game.platform[1]}"><img src="./images/platforms/${game.platform[1]}.svg" alt=''></span>
+                        <span class="platform-item ${game.platform[2]}"><img src="./images/platforms/${game.platform[2]}.svg" alt=''></span>
+                    </div>
+                </div>
+            `;
         });
 
-        genresChechbox.forEach(genre => {
-            genre.addEventListener('change', (e) => {
-                console.log(genre);
-            });
-        });
+        return catalog_content;
     }
 }

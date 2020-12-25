@@ -228,7 +228,6 @@
 
 .product-content {
     position: relative;
-    margin-bottom: 60px;
     margin-left: 14%;
     margin-right: 14%;
     top: -110px;
@@ -303,7 +302,7 @@
 
 .description-block {
     width: 100%;
-    min-height: 350px;
+    min-height: 330px;
     padding: 40px;
     margin-left: 0;
     margin-right: 0;

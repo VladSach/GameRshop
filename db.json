@@ -86,7 +86,7 @@
     {
         "url": "deus_ex_mankind_divided",
         "title": "Deus Ex: Mankind Divided",
-        "platform": ["Playstation 4", "", ""],
+        "platform": ["Playstation 4", "Xbox One", ""],
         "price": 549,
         "genres": ["Action", "Adventure", "Roleplaying"],
         "image": "./images/products_img/deus_ex_mankind_divided.webp",
