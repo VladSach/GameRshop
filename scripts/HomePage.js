@@ -39,17 +39,17 @@ export default class HomePage {
                 <input type="radio" name="r" id="r3" >
                 <input type="radio" name="r" id="r4" >
                 <div class="slide curS">
-                    <a href="">
+                    <a href="#catalog/playstation_4">
                         <img src="images/slider/image1.webp" alt="Slide">
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="">
+                    <a href="#catalog/xbox_one">
                         <img src="images/slider/image2.webp" alt="Slide">
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="">
+                    <a href="#catalog/nintendo_switch">
                         <img src="images/slider/image3.webp" alt="Slide">
                     </a>
                 </div>
@@ -101,9 +101,9 @@ export default class HomePage {
                 <p> Game selection crisis? 
                     Great choice and don't know how to play? 
                     Played for a long time and do not know anything about new products? 
-                    Our Actions Master will solve your problem quickly and without unnecessary words :)
+                    Our <span style="text-decoration:line-through;">Dungeon</span> Game Master will solve your problem quickly and without unnecessary words :)
                 </p>
-                <a href="" id="btn-h" class="btn-promotes">Begin</a>
+                <a href="#catalog" id="btn-h" class="btn-promotes">Begin</a>
             </div>
             <div class="master-image">
                 <img class="image_1" src="./images/master/kia-1.svg" alt="master-down">

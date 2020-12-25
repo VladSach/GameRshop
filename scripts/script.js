@@ -2,6 +2,7 @@ import Cart from "./Cart.js";
 import Router from "./Router.js";
 import HomePage from "./HomePage.js";
 import PagesHub from "./PagesHub.js";
+import OrderPage from "./OrderPage.js";
 import ActionPage from "./ActionPage.js";
 import ProductPage from "./ProductPage.js";
 import CatalogPage from "./CatalogPage.js";
@@ -59,6 +60,7 @@ async function init_end_points(){
     let products_end_points = [];
     let catalog_end_points = [];
     let actions_end_points = [];
+    let orders_end_points = [];
 
     data.products.forEach(product => {
         products_end_points.push(product.url);
@@ -68,19 +70,24 @@ async function init_end_points(){
         actions_end_points.push(action.url)
     })
 
+    data.orders.forEach(order => {
+        orders_end_points.push(order)
+    })
+
     catalog_end_points = ["playstation_4", "xbox_one", "nintendo_switch"];
 
-    return {products_end_points, catalog_end_points, actions_end_points}
+    return {products_end_points, catalog_end_points, actions_end_points, orders_end_points}
 }
 
 let cart = new Cart();
 let homePage = new HomePage();
+let orderPage = new OrderPage();
 let actionPage = new ActionPage();
 let productPage = new ProductPage();
 let catalogPage = new CatalogPage();
 
 
-let hub = new PagesHub([cart, homePage, actionPage, productPage, catalogPage], homePage);
+let hub = new PagesHub([cart, homePage, actionPage, productPage, catalogPage, orderPage], homePage);
 
 (async function() {
 
@@ -88,5 +95,6 @@ let hub = new PagesHub([cart, homePage, actionPage, productPage, catalogPage], h
 
     new Router(end_points, hub);
     hub.loadDefaultPage();
+    hub.loadCart();
 
 })();

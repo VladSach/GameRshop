@@ -10,6 +10,8 @@ export default class CatalogPage {
 
         this.allGenres = ["Action", "Horror", "Shooter", "Stealth", "Andventure", "Platformer", "Roleplaying"];
 
+        this.allProducts;
+
     }
 
     loadPage(hash = null) {

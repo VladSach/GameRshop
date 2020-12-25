@@ -149,5 +149,6 @@
         "image": "./images/slider/image4.webp",
         "description": "New Year Sales are HERE!!!",
         "endDate": "10/01/2021"
-    }]
+    }],
+    "orders": []
 }

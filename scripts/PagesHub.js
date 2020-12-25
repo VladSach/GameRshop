@@ -24,6 +24,7 @@ export default class PagesHub {
 
     loadCart(){
         let page = this.getPage("cart");
+        page.loadProductToCard();
         
     }
 }
