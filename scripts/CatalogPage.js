@@ -65,28 +65,17 @@ export default class CatalogPage {
 
     eventListener(){
 
-        let platformsCheckbox = [];
-        platformsCheckbox[0] = document.getElementById("check-playstation-4");
-        platformsCheckbox[1] = document.getElementById("check-xbox-one");
-        platformsCheckbox[2] = document.getElementById("check-nintendo-switch");
+        let platformsCheckbox = this.getPlatforms();
 
         platformsCheckbox.forEach(platform => {
             platform.addEventListener('change', (e) => {
                 
                 if (e.target.checked) {
-                    history.pushState(null, null, '#catalog/playstation_4');
+                    history.pushState(null, null, '#catalog/' + e.target.id.slice(6,));
+                } else if (!e.target.checked) {
+                    history.pushState(null, null, '#catalog');
                 }
 
-            });
-        });
-
-        platformsCheckbox.forEach(platform => {
-            platform.addEventListener('change', (e) => {
-            });
-        });
-
-        platformsCheckbox.forEach(platform => {
-            platform.addEventListener('change', (e) => {
             });
         });
 
@@ -108,7 +97,13 @@ export default class CatalogPage {
         
     }
 
-
+    getPlatforms(){
+        let platformsCheckbox = [];
+        platformsCheckbox[0] = document.getElementById("check-playstation_4");
+        platformsCheckbox[1] = document.getElementById("check-xbox_one");
+        platformsCheckbox[2] = document.getElementById("check-nintendo_switch");
+        return platformsCheckbox;
+    }
 
     loadCatalogListSidebar(){
         return `
@@ -139,20 +134,20 @@ export default class CatalogPage {
                             <div class="checkbox-row">
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);"> <!--#catalog/playstation_4-->
-                                        <input id="check-playstation-4" type="checkbox">
-                                        <label for="check-playstation-4">Playstation 4</label>
+                                        <input id="check-playstation_4" type="checkbox">
+                                        <label for="check-playstation_4">Playstation 4</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-xbox-one" type="checkbox">
-                                        <label for="check-xbox-one">Xbox One</label>
+                                        <input id="check-xbox_one" type="checkbox">
+                                        <label for="check-xbox_one">Xbox One</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-nintendo-switch" type="checkbox" >
-                                        <label for="check-nintendo-switch">Nintendo Switch</label>
+                                        <input id="check-nintendo_switch" type="checkbox" >
+                                        <label for="check-nintendo_switch">Nintendo Switch</label>
                                     </a>
                                 </div>
                             </div>
