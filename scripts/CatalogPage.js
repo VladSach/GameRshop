@@ -6,9 +6,13 @@ export default class CatalogPage {
         this.route = "catalog";
         this.content = document.getElementById("page-content");
 
+        this.genresToShow = [];
+
+        this.allGenres = ["Action", "Horror", "Shooter", "Stealth", "Andventure", "Platformer", "Roleplaying"];
+
     }
 
-    loadPage(hash) {
+    loadPage(hash = null) {
         this.loadCatalogPage(hash);
         return true;
     }
@@ -18,8 +22,96 @@ export default class CatalogPage {
         this.content.innerHTML = showPacMan();
 
         let data = await getData();
-        let allProducts = data.products; 
+        let allProducts = data.products;
 
+        this.genresToShow = this.allGenres;
+
+        this.refreshPage(allProducts, hash);
+    }
+
+    sortProducts(catalog, hash = null) {
+        let filteredCatalog = catalog;
+
+        if (hash) {
+            let consoles = (hash === "playstation_4") ? "Playstation 4" :
+                       (hash === "xbox_one") ? "Xbox One" : "Nintendo Switch";
+
+            filteredCatalog = catalog.filter(product => {
+                return product.platform.includes(consoles);
+            });
+
+        }
+
+        if (this.genresToShow.length != 7){
+            //console.log(filteredCatalog)
+            this.genresToShow.forEach(genre => {
+                console.log(genre)
+                filteredCatalog.forEach(game => {
+                    if(!game.genres.includes(genre)){
+                        filteredCatalog.splice(filteredCatalog.indexOf(game), 1);
+                    }
+                });
+            });
+        }
+
+        return filteredCatalog;
+    }
+
+    eventListener(catalog, hash = null){
+
+        let platformsCheckbox = this.getPlatforms();
+
+        platformsCheckbox.forEach(platform => {
+            platform.addEventListener('change', (e) => {
+                
+                if (e.target.checked) {
+                    history.pushState(null, null, '#catalog/' + e.target.id.slice(6,));
+                    this.refreshPage(catalog, e.target.id.slice(6,), null);
+                    this.genresToShow = this.allGenres;
+                    
+                } else if (!e.target.checked) {
+                    history.pushState(null, null, '#catalog');
+                    this.refreshPage(catalog, null, null);
+                    this.genresToShow = this.allGenres;
+                }
+            });
+
+            if (platform.id.slice(6,) == hash) {
+                platform.checked = true;
+            }
+        });
+
+        let genresChechbox = this.getGenres();
+
+        genresChechbox.forEach(genre => {
+            genre.addEventListener('change', (e) => {
+
+                if(this.genresToShow.length == 7){
+                    this.genresToShow  = [];
+                }
+
+                if (e.target.checked){
+                    this.genresToShow.push(e.target.id.slice(6,))
+                    this.refreshPage(catalog, hash, this.genresToShow);
+
+                    console.log(this.genresToShow)
+                    
+                } else if (!e.target.checked) {
+                    this.genresToShow.splice(this.genresToShow.indexOf(e.target), 1);
+                    this.refreshPage(catalog, hash, this.genresToShow);
+                }
+
+                if (this.genresToShow.includes(genre)) {
+                    console.log(this.genresToShow)
+                    console.log(genre)
+                    genre.checked = true;
+                }
+            });
+        });
+
+    }
+
+    refreshPage(allProducts, hash){
         let catalog = this.sortProducts(allProducts, hash);
 
         this.content.innerHTML = `
@@ -45,59 +137,11 @@ export default class CatalogPage {
             </div>
         `; 
 
-        this.eventListener();
+        this.eventListener(allProducts, hash);
     }
 
-    sortProducts(catalog, hash = null) {
-        let filteredCatalog = [];
 
-        if (hash) {
-            let consoles = (hash === "playstation_4") ? "Playstation 4" :
-                       (hash === "xbox_one") ? "Xbox One" : "Nintendo Switch";
-
-            filteredCatalog = catalog.filter(product => {
-                return product.platform.includes(consoles);
-            });
-        }
-
-        return filteredCatalog;
-    }
-
-    eventListener(){
-
-        let platformsCheckbox = this.getPlatforms();
-
-        platformsCheckbox.forEach(platform => {
-            platform.addEventListener('change', (e) => {
-                
-                if (e.target.checked) {
-                    history.pushState(null, null, '#catalog/' + e.target.id.slice(6,));
-                } else if (!e.target.checked) {
-                    history.pushState(null, null, '#catalog');
-                }
-
-            });
-        });
-
-        let genresChechbox = [];
-        genresChechbox[0] = document.getElementById("check-action");
-        genresChechbox[1] = document.getElementById("check-horror");
-        genresChechbox[2] = document.getElementById("check-shooter");
-        genresChechbox[3] = document.getElementById("check-stealth");
-        genresChechbox[4] = document.getElementById("check-andventure");
-        genresChechbox[5] = document.getElementById("check-platformer");
-        genresChechbox[6] = document.getElementById("check-roleplaying");
-
-        genresChechbox.forEach(genre => {
-            genre.addEventListener('change', (e) => {
-                console.log(genre);
-            });
-        });
-
-        
-    }
-
-    getPlatforms(){
+    getPlatforms() {
         let platformsCheckbox = [];
         platformsCheckbox[0] = document.getElementById("check-playstation_4");
         platformsCheckbox[1] = document.getElementById("check-xbox_one");
@@ -105,7 +149,19 @@ export default class CatalogPage {
         return platformsCheckbox;
     }
 
-    loadCatalogListSidebar(){
+    getGenres() {
+        let genresChechbox = [];
+        genresChechbox[0] = document.getElementById("check-Action");
+        genresChechbox[1] = document.getElementById("check-Horror");
+        genresChechbox[2] = document.getElementById("check-Shooter");
+        genresChechbox[3] = document.getElementById("check-Stealth");
+        genresChechbox[4] = document.getElementById("check-Andventure");
+        genresChechbox[5] = document.getElementById("check-Platformer");
+        genresChechbox[6] = document.getElementById("check-Roleplaying");
+        return genresChechbox;
+    }
+
+    loadCatalogListSidebar() {
         return `
             <div class="filter-block">
                 <div id="fixed-filter">
@@ -159,44 +215,44 @@ export default class CatalogPage {
                             <div class="checkbox-row">
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-action" type="checkbox">
-                                        <label for="check-action">Action</label>
+                                        <input id="check-Action" type="checkbox">
+                                        <label for="check-Action">Action</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-andventure" type="checkbox">
-                                        <label for="check-andventure">Andventure</label>
+                                        <input id="check-Andventure" type="checkbox">
+                                        <label for="check-Andventure">Andventure</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-roleplaying" type="checkbox" >
-                                        <label for="check-roleplaying">Roleplaying</label>
+                                        <input id="check-Roleplaying" type="checkbox" >
+                                        <label for="check-Roleplaying">Roleplaying</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-horror" type="checkbox">
-                                        <label for="check-horror">Horror</label>
+                                        <input id="check-Horror" type="checkbox">
+                                        <label for="check-Horror">Horror</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-shooter" type="checkbox">
-                                        <label for="check-shooter">Shooter</label>
+                                        <input id="check-Shooter" type="checkbox">
+                                        <label for="check-Shooter">Shooter</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-stealth" type="checkbox">
-                                        <label for="check-stealth">Stealth</label>
+                                        <input id="check-Stealth" type="checkbox">
+                                        <label for="check-Stealth">Stealth</label>
                                     </a>
                                 </div>
                                 <div class="checkbox-wrap">
                                     <a class="check-group" href="javascript:void(0);">
-                                        <input id="check-platformer" type="checkbox">
-                                        <label for="check-platformer">Platformer</label>
+                                        <input id="check-Platformer" type="checkbox">
+                                        <label for="check-Platformer">Platformer</label>
                                     </a>
                                 </div>
                             </div>
@@ -207,7 +263,7 @@ export default class CatalogPage {
         `;
     }
 
-    loadCatalog(catalog){
+    loadCatalog(catalog) {
         let catalog_content = '';
 
         catalog.forEach(game => {
