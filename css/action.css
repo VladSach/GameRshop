@@ -19,7 +19,8 @@
 
 .action-img-block img {
     display: block;
-    width: 100%;
+    width: 95%;
+    height: 100%;
 }
 
 .action-information {
@@ -40,11 +41,11 @@
     text-transform: uppercase;
 }
 
-.action-desctiprion {
-    font-size: 18px;
+.action-description {
+    font-size: 12px;
     line-height: 22px;
     margin-bottom: 15px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .action-expire-date {
