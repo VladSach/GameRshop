@@ -54,7 +54,7 @@ export default class HomePage {
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="">
+                    <a href="#action/winter_action">
                         <img src="images/slider/image4.webp" alt="Slide">
                     </a>
                 </div>
