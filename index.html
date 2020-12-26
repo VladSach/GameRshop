@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>GameRshop</title>
 
+    <link href="css/cart.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/action.css" rel="stylesheet">
     <link href="css/product.css" rel="stylesheet">
@@ -13,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="fonts/webfonts/Montserrat.css">
 </head>
 <body>
+    <div class="overlay"></div>
+
     <header>
         <div class="header-upper-row">
             <a href="#" >
@@ -75,14 +78,50 @@
                         <path d="M28.3255 16.697C26.7111 19.0368 24.0796 21.5956 19.9388 25.2058L16.0203 28.1164L12.287 25.2164C8.13283 21.5954 5.44092 19.0305 3.76908 16.6796C2.15321 14.4074 1.5 12.3462 1.5 9.66848C1.5 5.63225 4.64705 2.5 8.8 2.5C11.08 2.5 13.3854 3.56799 14.8622 5.28718L16 6.61181L17.1378 5.28718C18.6146 3.56799 20.92 2.5 23.2 2.5C27.3529 2.5 30.5 5.63225 30.5 9.66848C30.5 12.3684 29.8872 14.4336 28.3255 16.697Z" stroke="white" stroke-width="3" stroke-linecap="round"></path>
                     </svg>
                 </a>
-                <a href="#" class = 'header-item'>
+                <a href="#cart" id = "cart-btn" class = 'header-item'>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 9.5H29.5738L27.2459 22H9.80328L8 9.5ZM8 9.5L7.5082 4.32558L2 2" stroke="white" stroke-width="3"></path>
-                    <circle cx="11" cy="29" r="2" fill="white"></circle>
-                    <circle cx="25" cy="29" r="2" fill="white"></circle>
+                        <path d="M8 9.5H29.5738L27.2459 22H9.80328L8 9.5ZM8 9.5L7.5082 4.32558L2 2" stroke="white" stroke-width="3"></path>
+                        <circle cx="11" cy="29" r="2" fill="white"></circle>
+                        <circle cx="25" cy="29" r="2" fill="white"></circle>
                     </svg>
+                    <span id="products-counter-header">0</span>
                 </a>
             </nav>
+
+            <div id="cart-dropdown">
+                <div class="empty-cart">
+                    <h1>Cart is empty</h1>
+                    <p>You haven't add any game yet :(</p>
+                </div>
+                <div class="cart-dropdown-full">
+                    <div class="cart-header">
+                        <p>
+                            Cart
+                            <span id="products-counter-dropdown">0</span>
+                        </p>
+                    </div>
+                    <div class="cart-content">
+                        <div class="products-in-cart">
+                            <div id="product-list">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-bottom-btn">
+                        <div class="cart-total">
+                            <p class="cart-total-title">Total</p>
+                            <p class="cart-total-price">
+                                <span id="cart-total-sum"></span>
+                                ₴
+                            </p>
+                        </div>
+                        <div class="btns-block">
+                            <a class="btn-simple" href="#cart/clear">Clear cart</a>
+                            <a class="btn-promotes" href="#order">Make order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="header-lower-row">

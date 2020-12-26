@@ -7,6 +7,7 @@
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 2rem;
+
 }
 
 .game-card-image {
@@ -43,6 +44,7 @@
     width: 100%;
     text-decoration: none;
     margin-bottom: 30px;
+    max-height: 20px;
 }
 
 .game-card-title:hover {

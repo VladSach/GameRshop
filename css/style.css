@@ -15,7 +15,7 @@
 
 html{
     position: relative;
-    overflow-x: hidden;
+    overflow-y: scroll;
     
 }
 

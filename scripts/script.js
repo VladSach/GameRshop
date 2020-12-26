@@ -61,6 +61,7 @@ async function init_end_points(){
     let catalog_end_points = [];
     let actions_end_points = [];
     let orders_end_points = [];
+    let cart_end_points = [];
 
     data.products.forEach(product => {
         products_end_points.push(product.url);
@@ -76,7 +77,10 @@ async function init_end_points(){
 
     catalog_end_points = ["playstation_4", "xbox_one", "nintendo_switch"];
 
-    return {products_end_points, catalog_end_points, actions_end_points, orders_end_points}
+    cart_end_points = products_end_points.slice();
+    cart_end_points.push("clear");
+
+    return {products_end_points, catalog_end_points, actions_end_points, orders_end_points, cart_end_points}
 }
 
 let cart = new Cart();

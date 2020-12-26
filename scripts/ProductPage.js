@@ -90,7 +90,7 @@ export default class ProductPage {
                                     <p>Price: <span>${game.price} ₴</span></p>
                                 </div>
                                 <div class="info-buttons">
-                                    <a id="buy_btn" href="#">
+                                    <a id="buy_btn" href="#cart/${game.url}">
                                         <span class="text_1">buy</span>
                                         <span class="text_2">In cart</span>
                                     </a>
