@@ -9,7 +9,7 @@ export default class Router {
             "product": products_end_points,
             "action": actions_end_points,
             "catalog": catalog_end_points,
-            "order": orders_end_points
+            "checkout": orders_end_points
         }
         
         this.hub = hub;

@@ -46,8 +46,6 @@ export default class CartManager {
 
         let cartLocalStorage = JSON.parse(localStorage.getItem("cart"));
 
-        console.log(cartLocalStorage.length);
-
         if(cartLocalStorage.length == 0){
             emptyCart.style.display = "block";
             counterTop.style.display = "none";
@@ -101,9 +99,7 @@ export default class CartManager {
         let counterCart = document.getElementById("products-counter-dropdown");
         let totalSum = document.getElementById("cart-total-sum")
 
-        console.log(itemsToShow)
         itemsToShow.forEach(item => {
-            console.log(item)
             counterTop.style.display = "flex";
             let item_amount = this.getAmountFromLocalStorage(item.url);
 
@@ -184,7 +180,6 @@ export default class CartManager {
     addItemToCartLocalStorage(hash) {
         let itemsCart = JSON.parse(localStorage.getItem("cart"));
 
-        console.log(itemsCart)
 
         if(!itemsCart){
             itemsCart = [];

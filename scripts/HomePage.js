@@ -119,7 +119,9 @@ export default class HomePage {
         };
 
         document.querySelector('.btn-promotes').onmouseout = () => {
-            document.querySelector('.master-block').classList.remove('hover'); 
+            if(document.querySelector('.master-block')){
+                document.querySelector('.master-block').classList.remove('hover'); 
+            }
         };
     }
 
