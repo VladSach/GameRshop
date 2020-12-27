@@ -60,7 +60,7 @@ export default class CartManager {
             emptyCart.style.display = "none";
             dropdownCart.style.display = "none";
 
-            history.back();
+            history.pushState(null, null, "#home")
         });
 
         let plusBtn = document.querySelectorAll(".counter-plus");
