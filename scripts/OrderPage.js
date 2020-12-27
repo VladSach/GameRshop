@@ -1,8 +1,13 @@
+import {sendRequest} from "./script.js";
+
 export default class OrderPage {
     constructor(){
         this.route = "checkout";
         this.content = document.getElementById("page-content");
 
+        this.formContent;
+
+        this.validForm = [];
     }
 
     loadPage(hash) {
@@ -58,7 +63,7 @@ export default class OrderPage {
                     <div class="order-form-block">
                         <div class="order-form-header">Personal information</div>
                         <div class="order-form-content">
-                            ${this.loadStepOne()}
+
                         </div>
                     </div>
                 </div>  
@@ -66,6 +71,9 @@ export default class OrderPage {
 
         </div>
         `;
+
+        this.formContent = document.querySelector(".order-form-content")
+        this.formContent.innerHTML = this.loadStepOne()
         this.eventListerStepOne();
     }
 
@@ -74,28 +82,28 @@ export default class OrderPage {
         <div id="step-1">
             <form id="form-step-1" autocomplete="off"  novalidate>
                 <div class="form-group">
-                    <input class = "form-group-input" id="name" type="text" value="" required>
+                    <input class = "form-group-input" id="name" name="name" type="text" value="" required>
                     <label for="name">Name</label>
                     <span class="help">Order will be placed in this name</span>
                 </div>
                 <div class="form-group">
-                    <input class = "form-group-input" id="surname" type="text" value="" required>
+                    <input class = "form-group-input" id="surname" name="surname" type="text" value="" required>
                     <label for="surname">Surname</label>
                     <span class="help">Order will be placed in this surname</span>
                 </div>
                 <div class="form-group">
-                    <input class = "form-group-input" id="tel" type="tel" value="" required>
+                    <input class = "form-group-input" id="tel" name="tel" type="tel" value="" required>
                     <label for="tel">Phone</label>
                     <span class="help">Requared for order conformation</span>
                 </div>
                 <div class="form-group">
-                    <input class = "form-group-input" id="email" type="email" value="" required>
+                    <input class = "form-group-input" id="email" name="email" type="email" value="" required>
                     <label for="email">Email</label>
                     <span class="help">Order detail will be sent there</span>
                 </div>
 
                 <button type="submit" id="btn-step-1" class="btn-submit">
-                    Next form
+                    Further
                 </button>
             </form>
             
@@ -104,67 +112,300 @@ export default class OrderPage {
     }
 
     eventListerStepOne(){
-        const btn = document.getElementById("btn-step-1");
 
         let form = document.getElementById("form-step-1")
 
-        const name = document.getElementById('name');
-        const surname = document.getElementById('surname');
-        const tel = document.getElementById('tel');
-        const email = document.getElementById('email');
+        const name = form.elements.namedItem('name');
+        const surname = form.elements.namedItem('surname');
+        const tel = form.elements.namedItem('tel');
+        const email = form.elements.namedItem('email');
 
-        let inputs = [name, surname, tel, email]
+        const name_reg = /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/
+        const tel_reg = /^\+?3?8?(0\d{9})$/
+        const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+        name.addEventListener('input', e => {
+            history.pushState(null, null, "#checkout")
+            if (name_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        surname.addEventListener('input', e => {
+            if (name_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        tel.addEventListener('input', e => {
+            if (tel_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        email.addEventListener('input', e => {
+            if (email_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        let validated = true;
         form.addEventListener('submit', e => {
             e.preventDefault();
 
-
             let errors = [];
 
-            const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-            if (name.value == "") {
+            if (!name_reg.test(name.value)) {
                 errors.push({text: "name", el: name});
             }
-               
-            if (surname.value == "") {
+
+            if (!name_reg.test(surname.value)) {
                 errors.push({text: "surname", el: surname});
             }
 
-            if (tel.value == "") {
-                errors.push({text: "tel", el: tel});
-            } else if (!email_reg.test(tel.value)) {
+            if (!tel_reg.test(tel.value)) {
                 errors.push({text: "tel", el: tel});
             }
 
-            if (email.value == "") {
-                errors.push({text: "email", el: email});
-            } else if (!email_reg.test(email.value)) {
+            if (!email_reg.test(email.value)) {
                 errors.push({text: "email", el: email});
             }
 
             if (errors.length > 0) {
-                this.handleErrors(errors);
-                return false;
+                validated = false;
             }
 
-            inputs.map((er) => {
-                er.classList.add('validated');
-            });
-               
-            alert('SUBMITTED'); //change form
-            return true;
+            if(validated) {
+                this.validForm.push(name.value);
+                this.validForm.push(surname.value);
+                this.validForm.push(tel.value);
+                this.validForm.push(email.value);
 
+                this.loadStepThree();
+            }
         });
     }
 
-    handleErrors(errs) {
-        
-        errs.map((er) => {
-            er.el.classList.add('non-validated');
+    loadStepThree() {
+        document.getElementById("step-icon-2").classList.add('steps-item-icon-active');
+        document.getElementById("step-icon-3").classList.add('steps-item-icon-active');
+        document.querySelector(".order-form-header").innerHTML = "Payment";
+
+        this.formContent.innerHTML = `
+            <div id="step-2">
+                <form id="form-step-2" autocomplete="off"  novalidate>
+                    <div class="form-group">
+                        <input class = "form-group-input" id="name-on-card" name="name-on-card" type="text" value="" required>
+                        <label for="name">Name on card</label>
+                        <span class="help">Full name as displayed on card</span>
+                    </div>
+                    <div class="form-group">
+                        <input class = "form-group-input" id="credit-card-number" name="credit-card-number" type="text" value="" required>
+                        <label for="surname">Credit card number</label>
+                        <span class="help">Credit card number is required</span>
+                    </div>
+                    <div class="form-group">
+                        <input class = "form-group-input" id="expiration-date" name="expiration-date" type="text" value="" required>
+                        <label for="tel">Expiration date</label>
+                        <span class="help">Expiration date is required</span>
+                    </div>
+                    <div class="form-group">
+                        <input class = "form-group-input" id="cvc" name="cvc" type="password" value="" required>
+                        <label for="tel">CVC</label>
+                        <span class="help">CVC is required</span>
+                    </div>
+
+                    <button type="submit" id="btn-step-2" class="btn-submit">
+                        Further
+                    </button>
+                </form>
+                
+            </div>
+        `;
+
+        this.eventListerStepThree();
+    }
+
+    eventListerStepThree() {
+        let form = document.getElementById("form-step-2")
+
+        const cardName = form.elements.namedItem('name-on-card');
+        const creditCardNumber = form.elements.namedItem('credit-card-number');
+        const expiration = form.elements.namedItem('expiration-date');
+        const cvc = form.elements.namedItem('cvc');
+
+        const cardName_reg = /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/
+        const creditCardNumber_reg = /^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$/
+        const expiration_reg = /^((0[1-9])|(1[0-2]))[\/\.\-]*(2[0-9])$/
+        const cvc_reg = /^[0-9]{3,}/
+
+
+        cardName.addEventListener('input', e => {
+            if (cardName_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
         });
-        
-        errs[0].el.focus();
-        
-       }
+
+        creditCardNumber.addEventListener('input', e => {
+            if (creditCardNumber_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        expiration.addEventListener('input', e => {
+            if (expiration_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        cvc.addEventListener('input', e => {
+            if (cvc_reg.test(e.target.value)) {
+                e.target.classList.add('validated');
+                e.target.classList.remove('non-validated');
+            } else {
+                e.target.classList.add('non-validated');
+                e.target.classList.remove('validated');
+            }
+        });
+
+        let validated = true;
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+
+            let errors = [];
+
+            if (!cardName_reg.test(cardName.value)) {
+                errors.push({text: "cardName", el: cardName});
+            }
+
+            if (!creditCardNumber_reg.test(creditCardNumber.value)) {
+                errors.push({text: "creditCardNumber", el: creditCardNumber});
+            }
+
+            if (!expiration_reg.test(expiration.value)) {
+                errors.push({text: "expiration", el: expiration});
+            }
+
+            if (!cvc_reg.test(cvc.value)) {
+                errors.push({text: "cvc", el: cvc});
+            }
+
+            if (errors.length > 0) {
+                validated = false;
+            }
+
+            if(validated) {
+                this.validForm.push(cardName.value);
+                this.validForm.push(creditCardNumber.value);
+                this.validForm.push(expiration.value);
+                this.validForm.push(cvc.value);
+
+                this.loadStepFour();
+            }
+        });
+    }
+
+    loadStepFour() {
+        document.getElementById("step-icon-4").classList.add('steps-item-icon-active');
+        document.querySelector(".order-form-header").innerHTML = "Order review";
+
+
+        let order = {
+            name: this.validForm[0],
+            surname: this.validForm[1],
+            tel: this.validForm[2],
+            email: this.validForm[3],
+            cardName: this.validForm[4],
+            creditCardNumber: this.validForm[5],
+            expiration: this.validForm[6],
+            cvc: this.validForm[7]
+        }
+
+        this.formContent.innerHTML = `
+            <div id="step-4">
+                <p>Name: ${order.name}</p>
+                <p>Surame: ${order.surname}</p>
+                <p>Phone: ${order.tel}</p>
+                <p>Email: ${order.email}</p>
+                <p>Card Name: ${order.cardName}</p>
+                <p>Card: ${order.creditCardNumber}</p>
+                <p>Expiration date: ${order.expiration}</p>
+                <p>CVC: ***</p>  
+                
+                <a href="#cart/clear"type="button" id="btn-step-4" class="btn-submit">
+                    Sumbit
+                </a>
+            </div>
+        `;
+
+        const postRequestUrl = "https://my-json-server.typicode.com/VladSach/GameRshop/orders";
+        document.getElementById("btn-step-4").addEventListener('click', () =>{
+            sendRequest('POST', postRequestUrl, JSON.stringify(order))
+                .then( data => {
+                    this.loadOrderById(data.id, order);
+                    
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.showError();
+                });
+        });
+    }
+
+    loadOrderById(id, {name, surname, tel, email, cardName, creditCardNumber, expiration}){
+        history.pushState(null, null, ('#checkout/'+id))
+        document.querySelector(".order-title").innerHTML = "Your order";
+        document.querySelector(".order-form-header").innerHTML = "Congrats";
+
+        this.formContent.innerHTML = `
+            <div id="step-4">
+            <h2>Order ID: ${id}</h2>
+                <p>Name: ${name}</p>
+                <p>Surame: ${surname}</p>
+                <p>Phone: ${tel}</p>
+                <p>Email: ${email}</p>
+                <p>Card Name: ${cardName}</p>
+                <p>Card: ${creditCardNumber}</p>
+                <p>Expiration date: ${expiration}</p>
+                <p>CVC: ***</p>  
+            </div>
+        `;
+        history.pushState(null, null, ('#checkout/'+id))
+    }
+
+    showError(){
+        this.content.innerHTML = `
+        <div role="alert">
+            Some problems with the data server. Sorry
+        </div>
+        `
+    }
 }

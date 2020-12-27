@@ -7,6 +7,11 @@ export default class HomePage {
         this.content = document.getElementById("page-content");
     }
 
+    loadPage() {
+        this.loadHomePage();
+        return true;
+    }
+
     async loadHomePage(){
 
         this.content.innerHTML = showPacMan();
@@ -26,7 +31,6 @@ export default class HomePage {
         ${this.bestSellers(best_sellers)}`;
 
         this.sliderScript();
-        this.mastersScript();
     }
 
     loadSlider(){
@@ -111,18 +115,6 @@ export default class HomePage {
             </div>
         </div>
         `;
-    }
-    
-    mastersScript(){
-        document.querySelector('.btn-promotes').onmouseover = () => {
-            document.querySelector('.master-block').classList.add('hover'); 
-        };
-
-        document.querySelector('.btn-promotes').onmouseout = () => {
-            if(document.querySelector('.master-block')){
-                document.querySelector('.master-block').classList.remove('hover'); 
-            }
-        };
     }
 
 

@@ -320,11 +320,11 @@ main {
     opacity: 0.8;
 }
 
-.master-block.hover .image_1 {
+.master-block:hover .image_1 {
     display: none;
 }
 
-.master-block:not(.hover) .image_2 {
+.master-block:not(:hover) .image_2 {
     display: none;
 }
 

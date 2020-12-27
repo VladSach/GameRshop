@@ -20,11 +20,9 @@ export default class CartManager {
         }
         else {
             if(hash == 'clear'){
-                history.pushState(null, null, '#home');
                 this.clearCart();
             }
             else {
-                history.pushState(null, null, '#home');
                 this.addItemToCartLocalStorage(hash);
             }
         }
@@ -62,7 +60,7 @@ export default class CartManager {
             emptyCart.style.display = "none";
             dropdownCart.style.display = "none";
 
-            history.pushState(null, null, '#home');
+            history.back();
         });
 
         let plusBtn = document.querySelectorAll(".counter-plus");

@@ -22,6 +22,18 @@ export async function getData(){
     throw new Error(response.status);
 };
 
+export function sendRequest(method, url, body=null) {
+    return fetch(url, {method: method, body: body}).then(response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response.json()
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
+
 export function showPacMan(){
     return `
         <div class="pacman-loader" role="status">
