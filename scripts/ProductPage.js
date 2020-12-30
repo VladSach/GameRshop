@@ -1,10 +1,10 @@
-import {getData} from "./script.js"
-import {showPacMan} from "./script.js"
+import {getData} from './script.js';
+import {showPacMan} from './script.js';
 
 export default class ProductPage {
     constructor(){
-        this.route = "product";
-        this.content = document.getElementById("page-content");
+        this.route = 'product';
+        this.content = document.getElementById('page-content');
         
     }
     

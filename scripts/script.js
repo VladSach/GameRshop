@@ -1,18 +1,25 @@
-import Cart from "./Cart.js";
-import Router from "./Router.js";
-import HomePage from "./HomePage.js";
-import PagesHub from "./PagesHub.js";
-import OrderPage from "./OrderPage.js";
-import ActionPage from "./ActionPage.js";
-import ProductPage from "./ProductPage.js";
-import CatalogPage from "./CatalogPage.js";
+import Cart from './Cart.js';
+import Router from './Router.js';
+import HomePage from './HomePage.js';
+import PagesHub from './PagesHub.js';
+import OrderPage from './OrderPage.js';
+import ActionPage from './ActionPage.js';
+import ProductPage from './ProductPage.js';
+import CatalogPage from './CatalogPage.js';
 
+import '../css/style.css';
+import '../css/action.css';
+import '../css/cart.css';
+import '../css/catalog.css';
+import '../css/checkout.css';
+import '../css/game-card.css';
+import '../css/product.css';
 
-const requestURL = "https://my-json-server.typicode.com/VladSach/GameRshop/db";
+const requestURL = 'https://my-json-server.typicode.com/VladSach/GameRshop/db';
 
 export async function getData(){
 
-    let response = await fetch(requestURL)
+    let response = await fetch(requestURL);
 
     if (response.ok) {
         let json = await response.json();
@@ -20,18 +27,18 @@ export async function getData(){
     }
 
     throw new Error(response.status);
-};
+}
 
 export function sendRequest(method, url, body=null) {
     return fetch(url, {method: method, body: body}).then(response => {
         if (!response.ok) {
             throw Error(response.statusText);
         }
-        return response.json()
+        return response.json();
     })
-    .catch(error => {
-        console.log(error);
-    });
+        .catch(error => {
+            console.log(error);
+        });
 }
 
 export function showPacMan(){
@@ -63,7 +70,7 @@ export function showPacMan(){
             </svg> 
         </div>
     `;
-};
+}
 
 async function init_end_points(){
 
@@ -80,19 +87,19 @@ async function init_end_points(){
     });
     
     data.actions.forEach(action => {
-        actions_end_points.push(action.url)
-    })
+        actions_end_points.push(action.url);
+    });
 
     data.orders.forEach(order => {
-        orders_end_points.push(order)
-    })
+        orders_end_points.push(order);
+    });
 
-    catalog_end_points = ["playstation_4", "xbox_one", "nintendo_switch"];
+    catalog_end_points = ['playstation_4', 'xbox_one', 'nintendo_switch'];
 
     cart_end_points = products_end_points.slice();
-    cart_end_points.push("clear");
+    cart_end_points.push('clear');
 
-    return {products_end_points, catalog_end_points, actions_end_points, orders_end_points, cart_end_points}
+    return {products_end_points, catalog_end_points, actions_end_points, orders_end_points, cart_end_points};
 }
 
 let cart = new Cart();

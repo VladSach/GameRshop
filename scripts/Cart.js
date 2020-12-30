@@ -1,11 +1,11 @@
-import {getData} from "./script.js"
+import {getData} from './script.js';
 
 export default class CartManager {
     constructor(){
-        this.route = "cart";
-        this.content = document.getElementById("product-list");
+        this.route = 'cart';
+        this.content = document.getElementById('product-list');
 
-        this.cartBtn = document.getElementById("cart-btn");
+        this.cartBtn = document.getElementById('cart-btn');
 
 
         this.totalPrice = 0;
@@ -32,51 +32,51 @@ export default class CartManager {
 
 
     showCartOnClick() {  
-        let cart = document.getElementById("cart-dropdown");
-        let overlay = document.querySelector(".overlay");
-        let emptyCart = document.querySelector(".empty-cart");
-        let dropdownCart = document.querySelector(".cart-dropdown-full");
-        let counterTop = document.getElementById("products-counter-header");
+        let cart = document.getElementById('cart-dropdown');
+        let overlay = document.querySelector('.overlay');
+        let emptyCart = document.querySelector('.empty-cart');
+        let dropdownCart = document.querySelector('.cart-dropdown-full');
+        let counterTop = document.getElementById('products-counter-header');
 
-        cart.style.display = "block";
-        overlay.style.display = "block";
+        cart.style.display = 'block';
+        overlay.style.display = 'block';
         
 
-        let cartLocalStorage = JSON.parse(localStorage.getItem("cart"));
+        let cartLocalStorage = JSON.parse(localStorage.getItem('cart'));
 
         if(cartLocalStorage.length == 0){
-            emptyCart.style.display = "block";
-            counterTop.style.display = "none";
-            dropdownCart.style.display = "none";
+            emptyCart.style.display = 'block';
+            counterTop.style.display = 'none';
+            dropdownCart.style.display = 'none';
         } else {
-            emptyCart.style.display = "none";
-            dropdownCart.style.display = "block";
+            emptyCart.style.display = 'none';
+            dropdownCart.style.display = 'block';
             
         }
 
-        overlay.addEventListener("click", () => {
-            cart.style.display = "none";
-            overlay.style.display = "none";
-            emptyCart.style.display = "none";
-            dropdownCart.style.display = "none";
+        overlay.addEventListener('click', () => {
+            cart.style.display = 'none';
+            overlay.style.display = 'none';
+            emptyCart.style.display = 'none';
+            dropdownCart.style.display = 'none';
 
-            history.pushState(null, null, "#home")
+            history.pushState(null, null, '#home');
         });
 
-        let plusBtn = document.querySelectorAll(".counter-plus");
-        let minusBtn = document.querySelectorAll(".counter-minus");
+        let plusBtn = document.querySelectorAll('.counter-plus');
+        let minusBtn = document.querySelectorAll('.counter-minus');
 
         plusBtn.forEach(btn => {
-            btn.addEventListener("click", () => {
-                console.log("+")
+            btn.addEventListener('click', () => {
+                console.log('+');
             });
-        })
+        });
 
         minusBtn.forEach(btn => {
-            btn.addEventListener("click", () => {
-                console.log("-")
+            btn.addEventListener('click', () => {
+                console.log('-');
             });
-        })
+        });
     }
 
     async loadCart() {
@@ -84,24 +84,24 @@ export default class CartManager {
         let data = await getData();
         
         let itemsInCart = [];
-        let cartLocalStorage = JSON.parse(localStorage.getItem("cart"));
+        let cartLocalStorage = JSON.parse(localStorage.getItem('cart'));
         cartLocalStorage.forEach(item => {
             itemsInCart.push(item.url);
         });
 
         let itemsToShow = data.products.filter(product => {
-            return itemsInCart.includes(product.url)
-        })
+            return itemsInCart.includes(product.url);
+        });
 
-        let counterTop = document.getElementById("products-counter-header");
-        let counterCart = document.getElementById("products-counter-dropdown");
-        let totalSum = document.getElementById("cart-total-sum")
+        let counterTop = document.getElementById('products-counter-header');
+        let counterCart = document.getElementById('products-counter-dropdown');
+        let totalSum = document.getElementById('cart-total-sum');
 
         itemsToShow.forEach(item => {
-            counterTop.style.display = "flex";
+            counterTop.style.display = 'flex';
             let item_amount = this.getAmountFromLocalStorage(item.url);
 
-            this.totalProducts += item_amount
+            this.totalProducts += item_amount;
             counterTop.innerText = this.totalProducts;
             counterCart.innerText = this.totalProducts;
 
@@ -122,17 +122,17 @@ export default class CartManager {
 
         let item = data.products.filter(product => {
             return product.url === hash;
-        })
+        });
         item = item[0];
 
-        let counterTop = document.getElementById("products-counter-header");
-        counterTop.style.display = "flex";
-        let counterCart = document.getElementById("products-counter-dropdown");
-        let totalSum = document.getElementById("cart-total-sum")
+        let counterTop = document.getElementById('products-counter-header');
+        counterTop.style.display = 'flex';
+        let counterCart = document.getElementById('products-counter-dropdown');
+        let totalSum = document.getElementById('cart-total-sum');
 
         let item_amount = this.getAmountFromLocalStorage(item.url);
 
-        this.totalProducts += item_amount
+        this.totalProducts += item_amount;
         counterTop.innerText = this.totalProducts;
         counterCart.innerText = this.totalProducts;
 
@@ -148,26 +148,26 @@ export default class CartManager {
         
         let itemsToShow = data.products.filter(product => {
             return product.url === hash;
-        })
+        });
 
         if (itemsToShow != null){
-            let counterTop = document.getElementById("products-counter-header");
-            counterTop.style.display = "flex";
-            let counterCart = document.getElementById("products-counter-dropdown");
-            let totalSum = document.getElementById("cart-total-sum");
+            let counterTop = document.getElementById('products-counter-header');
+            counterTop.style.display = 'flex';
+            let counterCart = document.getElementById('products-counter-dropdown');
+            let totalSum = document.getElementById('cart-total-sum');
 
             
             itemsToShow.forEach(item => {
                 let item_amount = this.getAmountFromLocalStorage(item.url);
     
-                this.totalProducts ++
+                this.totalProducts ++;
                 counterTop.innerText = this.totalProducts;
                 counterCart.innerText = this.totalProducts;
     
                 this.totalPrice += item.price;
                 totalSum.innerText = (this.totalPrice);
 
-                let value = document.getElementById("amount-" + item.url);
+                let value = document.getElementById('amount-' + item.url);
                 
                 value.innerText = (item_amount);
             });
@@ -176,13 +176,13 @@ export default class CartManager {
 
 
     addItemToCartLocalStorage(hash) {
-        let itemsCart = JSON.parse(localStorage.getItem("cart"));
+        let itemsCart = JSON.parse(localStorage.getItem('cart'));
 
 
         if(!itemsCart){
             itemsCart = [];
-            itemsCart.push({url: hash, amount: 1})
-            localStorage.setItem("cart", JSON.stringify(itemsCart));
+            itemsCart.push({url: hash, amount: 1});
+            localStorage.setItem('cart', JSON.stringify(itemsCart));
             this.loadCart();
             return true;
         }
@@ -192,25 +192,25 @@ export default class CartManager {
             if (itemsCart[i].url === hash){
                 itemsCart[i].amount++;
                 exist = true;
-                break
+                break;
             }
         }
 
         if (!exist){
             itemsCart.push({url: hash, amount: 1});
-            localStorage.setItem("cart", JSON.stringify(itemsCart));
+            localStorage.setItem('cart', JSON.stringify(itemsCart));
             this.addItemToCart(hash);
             return true;
         }
 
         
-        localStorage.setItem("cart", JSON.stringify(itemsCart));
+        localStorage.setItem('cart', JSON.stringify(itemsCart));
         this.updateCart(hash);
         return false;
     }
 
     getAmountFromLocalStorage(url) {
-        let itemsCart = JSON.parse(localStorage.getItem("cart"));
+        let itemsCart = JSON.parse(localStorage.getItem('cart'));
 
         for (let i = 0; i < itemsCart.length; i++) {
             if (itemsCart[i].url === url){
@@ -255,15 +255,15 @@ export default class CartManager {
                 </div>
             </div>
         </div>
-        `
+        `;
     }
 
     clearCart(){
-        localStorage.setItem("cart", JSON.stringify([]));
+        localStorage.setItem('cart', JSON.stringify([]));
 
         this.totalPrice = 0;
         this.totalProducts = 0;
-        this.content.innerHTML = "";
+        this.content.innerHTML = '';
 
         this.loadPage();
     }
