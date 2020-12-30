@@ -1,14 +1,14 @@
-import {getData} from './script.js';
-import {showPacMan} from './script.js';
+import {getData} from "./script.js";
+import {showPacMan} from "./script.js";
 
 export default class CatalogPage {
     constructor(){
-        this.route = 'catalog';
-        this.content = document.getElementById('page-content');
+        this.route = "catalog";
+        this.content = document.getElementById("page-content");
 
         this.genresToShow = [];
 
-        this.allGenres = ['Action', 'Horror', 'Shooter', 'Stealth', 'Andventure', 'Platformer', 'Roleplaying'];
+        this.allGenres = ["Action", "Horror", "Shooter", "Stealth", "Andventure", "Platformer", "Roleplaying"];
 
         this.allProducts;
 
@@ -61,8 +61,8 @@ export default class CatalogPage {
         let filteredCatalog = catalog;
 
         if (hash) {
-            let consoles = (hash === 'playstation_4') ? 'Playstation 4' :
-                (hash === 'xbox_one') ? 'Xbox One' : 'Nintendo Switch';
+            let consoles = (hash === "playstation_4") ? "Playstation 4" :
+                       (hash === "xbox_one") ? "Xbox One" : "Nintendo Switch";
 
             filteredCatalog = catalog.filter(product => {
                 return product.platform.includes(consoles);
@@ -130,7 +130,7 @@ export default class CatalogPage {
                 }
 
                 if (e.target.checked){
-                    this.genresToShow.push(e.target.id.slice(6,));
+                    this.genresToShow.push(e.target.id.slice(6,))
                     this.refreshPage(catalog, hash);
                     
                 } else if (!e.target.checked) {
@@ -152,19 +152,19 @@ export default class CatalogPage {
         // })
 
         let sort = [];
-        sort[0] = document.querySelectorAll('.catalog-sort')[0];
-        sort[1] = document.querySelectorAll('.catalog-sort')[1];
+        sort[0] = document.querySelectorAll(".catalog-sort")[0];
+        sort[1] = document.querySelectorAll(".catalog-sort")[1];
         
         addEventListener('click', (e) => {
             if (e.target == sort[0]) {
-                sort[0].classList.add('active');
-                sort[1].classList.remove('active');
+                sort[0].classList.add("active");
+                sort[1].classList.remove("active");
                 
             } else if (e.target == sort[1]) {
-                sort[1].classList.add('active');
-                sort[0].classList.remove('active');
+                sort[1].classList.add("active");
+                sort[0].classList.remove("active");
             }
-        });
+        })
 
 
     }
@@ -201,28 +201,28 @@ export default class CatalogPage {
 
     getPlatforms() {
         let platformsCheckbox = [];
-        platformsCheckbox[0] = document.getElementById('check-playstation_4');
-        platformsCheckbox[1] = document.getElementById('check-xbox_one');
-        platformsCheckbox[2] = document.getElementById('check-nintendo_switch');
+        platformsCheckbox[0] = document.getElementById("check-playstation_4");
+        platformsCheckbox[1] = document.getElementById("check-xbox_one");
+        platformsCheckbox[2] = document.getElementById("check-nintendo_switch");
         return platformsCheckbox;
     }
 
     getGenres() {
         let genresChechbox = [];
-        genresChechbox[0] = document.getElementById('check-Action');
-        genresChechbox[1] = document.getElementById('check-Horror');
-        genresChechbox[2] = document.getElementById('check-Shooter');
-        genresChechbox[3] = document.getElementById('check-Stealth');
-        genresChechbox[4] = document.getElementById('check-Andventure');
-        genresChechbox[5] = document.getElementById('check-Platformer');
-        genresChechbox[6] = document.getElementById('check-Roleplaying');
+        genresChechbox[0] = document.getElementById("check-Action");
+        genresChechbox[1] = document.getElementById("check-Horror");
+        genresChechbox[2] = document.getElementById("check-Shooter");
+        genresChechbox[3] = document.getElementById("check-Stealth");
+        genresChechbox[4] = document.getElementById("check-Andventure");
+        genresChechbox[5] = document.getElementById("check-Platformer");
+        genresChechbox[6] = document.getElementById("check-Roleplaying");
         return genresChechbox;
     }
 
     getPrices() {
         let priceValue = [];
-        priceValue[0] = document.getElementById('price-from');
-        priceValue[1] = document.getElementById('price-to');
+        priceValue[0] = document.getElementById("price-from");
+        priceValue[1] = document.getElementById("price-to");
         return priceValue;
     }
 

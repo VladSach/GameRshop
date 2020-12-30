@@ -1,10 +1,10 @@
-import {getData} from './script.js';
-import {showPacMan} from './script.js';
+import {getData} from "./script.js";
+import {showPacMan} from "./script.js"
 
 export default class HomePage {
     constructor (){
         this.route = 'home';
-        this.content = document.getElementById('page-content');
+        this.content = document.getElementById("page-content");
     }
 
     loadPage() {
@@ -79,10 +79,10 @@ export default class HomePage {
         let inputs = [];
         let time = 4000;
             
-        inputs[0] = document.getElementById('r1');
-        inputs[1] = document.getElementById('r2');
-        inputs[2] = document.getElementById('r3');
-        inputs[3] = document.getElementById('r4');
+        inputs[0] = document.getElementById("r1");
+        inputs[1] = document.getElementById("r2");
+        inputs[2] = document.getElementById("r3");
+        inputs[3] = document.getElementById("r4");
             
         function slideSlider() {
             inputs[i].click();
@@ -147,7 +147,7 @@ export default class HomePage {
                ${best_sellers_content} 
             </div>
         </div>
-        `;
+        `
 
     }
 

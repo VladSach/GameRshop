@@ -1,9 +1,9 @@
-import {sendRequest} from './script.js';
+import {sendRequest} from "./script.js";
 
 export default class OrderPage {
     constructor(){
-        this.route = 'checkout';
-        this.content = document.getElementById('page-content');
+        this.route = "checkout";
+        this.content = document.getElementById("page-content");
 
         this.formContent;
 
@@ -72,8 +72,8 @@ export default class OrderPage {
         </div>
         `;
 
-        this.formContent = document.querySelector('.order-form-content');
-        this.formContent.innerHTML = this.loadStepOne();
+        this.formContent = document.querySelector(".order-form-content")
+        this.formContent.innerHTML = this.loadStepOne()
         this.eventListerStepOne();
     }
 
@@ -113,19 +113,19 @@ export default class OrderPage {
 
     eventListerStepOne(){
 
-        let form = document.getElementById('form-step-1');
+        let form = document.getElementById("form-step-1")
 
         const name = form.elements.namedItem('name');
         const surname = form.elements.namedItem('surname');
         const tel = form.elements.namedItem('tel');
         const email = form.elements.namedItem('email');
 
-        const name_reg = /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
-        const tel_reg = /^\+?3?8?(0\d{9})$/;
-        const email_reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const name_reg = /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/
+        const tel_reg = /^\+?3?8?(0\d{9})$/
+        const email_reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         name.addEventListener('input', e => {
-            history.pushState(null, null, '#checkout');
+            history.pushState(null, null, "#checkout")
             if (name_reg.test(e.target.value)) {
                 e.target.classList.add('validated');
                 e.target.classList.remove('non-validated');
@@ -172,19 +172,19 @@ export default class OrderPage {
             let errors = [];
 
             if (!name_reg.test(name.value)) {
-                errors.push({text: 'name', el: name});
+                errors.push({text: "name", el: name});
             }
 
             if (!name_reg.test(surname.value)) {
-                errors.push({text: 'surname', el: surname});
+                errors.push({text: "surname", el: surname});
             }
 
             if (!tel_reg.test(tel.value)) {
-                errors.push({text: 'tel', el: tel});
+                errors.push({text: "tel", el: tel});
             }
 
             if (!email_reg.test(email.value)) {
-                errors.push({text: 'email', el: email});
+                errors.push({text: "email", el: email});
             }
 
             if (errors.length > 0) {
@@ -203,9 +203,9 @@ export default class OrderPage {
     }
 
     loadStepThree() {
-        document.getElementById('step-icon-2').classList.add('steps-item-icon-active');
-        document.getElementById('step-icon-3').classList.add('steps-item-icon-active');
-        document.querySelector('.order-form-header').innerHTML = 'Payment';
+        document.getElementById("step-icon-2").classList.add('steps-item-icon-active');
+        document.getElementById("step-icon-3").classList.add('steps-item-icon-active');
+        document.querySelector(".order-form-header").innerHTML = "Payment";
 
         this.formContent.innerHTML = `
             <div id="step-2">
@@ -243,17 +243,17 @@ export default class OrderPage {
     }
 
     eventListerStepThree() {
-        let form = document.getElementById('form-step-2');
+        let form = document.getElementById("form-step-2")
 
         const cardName = form.elements.namedItem('name-on-card');
         const creditCardNumber = form.elements.namedItem('credit-card-number');
         const expiration = form.elements.namedItem('expiration-date');
         const cvc = form.elements.namedItem('cvc');
 
-        const cardName_reg = /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
-        const creditCardNumber_reg = /^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$/;
-        const expiration_reg = /^((0[1-9])|(1[0-2]))[/.-]*(2[0-9])$/;
-        const cvc_reg = /^[0-9]{3,}/;
+        const cardName_reg = /^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/
+        const creditCardNumber_reg = /^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$/
+        const expiration_reg = /^((0[1-9])|(1[0-2]))[\/\.\-]*(2[0-9])$/
+        const cvc_reg = /^[0-9]{3,}/
 
 
         cardName.addEventListener('input', e => {
@@ -303,19 +303,19 @@ export default class OrderPage {
             let errors = [];
 
             if (!cardName_reg.test(cardName.value)) {
-                errors.push({text: 'cardName', el: cardName});
+                errors.push({text: "cardName", el: cardName});
             }
 
             if (!creditCardNumber_reg.test(creditCardNumber.value)) {
-                errors.push({text: 'creditCardNumber', el: creditCardNumber});
+                errors.push({text: "creditCardNumber", el: creditCardNumber});
             }
 
             if (!expiration_reg.test(expiration.value)) {
-                errors.push({text: 'expiration', el: expiration});
+                errors.push({text: "expiration", el: expiration});
             }
 
             if (!cvc_reg.test(cvc.value)) {
-                errors.push({text: 'cvc', el: cvc});
+                errors.push({text: "cvc", el: cvc});
             }
 
             if (errors.length > 0) {
@@ -334,8 +334,8 @@ export default class OrderPage {
     }
 
     loadStepFour() {
-        document.getElementById('step-icon-4').classList.add('steps-item-icon-active');
-        document.querySelector('.order-form-header').innerHTML = 'Order review';
+        document.getElementById("step-icon-4").classList.add('steps-item-icon-active');
+        document.querySelector(".order-form-header").innerHTML = "Order review";
 
 
         let order = {
@@ -347,7 +347,7 @@ export default class OrderPage {
             creditCardNumber: this.validForm[5],
             expiration: this.validForm[6],
             cvc: this.validForm[7]
-        };
+        }
 
         this.formContent.innerHTML = `
             <div id="step-4">
@@ -366,8 +366,8 @@ export default class OrderPage {
             </div>
         `;
 
-        const postRequestUrl = 'https://my-json-server.typicode.com/VladSach/GameRshop/orders';
-        document.getElementById('btn-step-4').addEventListener('click', () =>{
+        const postRequestUrl = "https://my-json-server.typicode.com/VladSach/GameRshop/orders";
+        document.getElementById("btn-step-4").addEventListener('click', () =>{
             sendRequest('POST', postRequestUrl, JSON.stringify(order))
                 .then( data => {
                     this.loadOrderById(data.id, order);
@@ -381,9 +381,9 @@ export default class OrderPage {
     }
 
     loadOrderById(id, {name, surname, tel, email, cardName, creditCardNumber, expiration}){
-        history.pushState(null, null, ('#checkout/'+id));
-        document.querySelector('.order-title').innerHTML = 'Your order';
-        document.querySelector('.order-form-header').innerHTML = 'Congrats';
+        history.pushState(null, null, ('#checkout/'+id))
+        document.querySelector(".order-title").innerHTML = "Your order";
+        document.querySelector(".order-form-header").innerHTML = "Congrats";
 
         this.formContent.innerHTML = `
             <div id="step-4">
@@ -398,7 +398,7 @@ export default class OrderPage {
                 <p>CVC: ***</p>  
             </div>
         `;
-        history.pushState(null, null, ('#checkout/'+id));
+        history.pushState(null, null, ('#checkout/'+id))
     }
 
     showError(){
@@ -406,6 +406,6 @@ export default class OrderPage {
         <div role="alert">
             Some problems with the data server. Sorry
         </div>
-        `;
+        `
     }
 }

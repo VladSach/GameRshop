@@ -23,7 +23,7 @@ export default class PagesHub {
     }
 
     loadCart(){
-        let page = this.getPage('cart');
+        let page = this.getPage("cart");
         page.loadCart();
     }
 }

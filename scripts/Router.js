@@ -4,13 +4,13 @@ export default class Router {
         window.addEventListener('hashchange', () => this.onRouteChange());
 
         this.end_points = {
-            'home': '',
-            'cart': cart_end_points,
-            'product': products_end_points,
-            'action': actions_end_points,
-            'catalog': catalog_end_points,
-            'checkout': orders_end_points
-        };
+            "home": '',
+            "cart": cart_end_points,
+            "product": products_end_points,
+            "action": actions_end_points,
+            "catalog": catalog_end_points,
+            "checkout": orders_end_points
+        }
         
         this.hub = hub;
 

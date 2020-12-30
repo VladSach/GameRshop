@@ -1,10 +1,10 @@
-import {getData} from './script.js';
-import {showPacMan} from './script.js';
+import {getData} from "./script.js"
+import {showPacMan} from "./script.js"
 
 export default class ActionPage {
     constructor(){
-        this.route = 'action';
-        this.content = document.getElementById('page-content');
+        this.route = "action";
+        this.content = document.getElementById("page-content");
         
     }
     
